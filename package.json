@@ -1,0 +1,21 @@
+{
+  "name": "iot-traffic-management-system",
+  "version": "1.0.0",
+  "description": "Dynamic Congestion Analysis & Intelligent Traffic Control via Edge IoT Processing",
+  "main": "app.js",
+  "scripts": {
+    "start": "python -m http.server 8000"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.1"
+  },
+  "keywords": [
+    "iot",
+    "traffic-management",
+    "edge-computing",
+    "supabase",
+    "max-pressure"
+  ],
+  "author": "",
+  "license": "MIT"
+}

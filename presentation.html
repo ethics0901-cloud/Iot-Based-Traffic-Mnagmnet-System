@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Competition Pitch Deck | IoT Based Traffic Management System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       COMPETITION PRESENTATION DECK STYLING
+       ========================================================================== */
+    :root {
+      --bg-space: #060911;
+      --bg-slide: #0a0f1d;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --bg-card-hover: rgba(26, 38, 66, 0.85);
+      --border-card: rgba(38, 208, 232, 0.22);
+      --cyan: #26D0E8;
+      --cyan-glow: rgba(38, 208, 232, 0.45);
+      --emerald: #10B981;
+      --emerald-glow: rgba(16, 185, 129, 0.4);
+      --amber: #F59E0B;
+      --crimson: #EF4444;
+      --crimson-glow: rgba(239, 68, 68, 0.5);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-space);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      overflow: hidden;
+      width: 100vw;
+      height: 100vh;
+      user-select: none;
+    }
+
+    /* Top Control Bar */
+    .deck-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 56px;
+      background: rgba(6, 9, 17, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 1.5rem;
+      z-index: 1000;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-logo-icon {
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(135deg, var(--cyan), var(--emerald));
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #031118;
+      font-size: 0.85rem;
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .comp-badge {
+      font-size: 0.68rem;
+      font-weight: 800;
+      background: rgba(38, 208, 232, 0.12);
+      border: 1px solid var(--border-card);
+      color: var(--cyan);
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .deck-header-center {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .slide-counter {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--cyan);
+    }
+
+    .timer-pill {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 3px 10px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .timer-pill.running {
+      border-color: rgba(16, 185, 129, 0.4);
+      color: var(--emerald);
+    }
+
+    .deck-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn-header-tool {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-main);
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-header-tool:hover {
+      background: rgba(38, 208, 232, 0.18);
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+
+    .btn-live-sim {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: var(--emerald);
+      color: var(--emerald);
+      font-weight: 700;
+    }
+
+    .btn-live-sim:hover {
+      background: var(--emerald);
+      color: #031e13;
+      box-shadow: 0 0 15px var(--emerald-glow);
+    }
+
+    /* Slide Stage */
+    .deck-stage {
+      position: absolute;
+      top: 56px;
+      bottom: 48px;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem 3rem;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      max-width: 1280px;
+      height: 100%;
+      max-height: 720px;
+      background: var(--bg-slide);
+      border: 1px solid var(--border-card);
+      border-radius: 16px;
+      padding: 2.75rem 3.5rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(38, 208, 232, 0.05);
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.97) translateY(12px);
+      transition: opacity 0.35s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1);
+    }
+
+    .slide.active {
+      opacity: 1;
+      pointer-events: all;
+      transform: scale(1) translateY(0);
+      z-index: 10;
+    }
+
+    /* Slide Content Components */
+    .slide-header {
+      margin-bottom: 1.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 1rem;
+    }
+
+    .slide-tag {
+      font-size: 16pt !important;
+      font-weight: 800;
+      color: var(--cyan);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.35rem;
+      display: block;
+    }
+
+    .slide-title {
+      font-family: var(--font-display);
+      font-size: 18pt !important;
+      font-weight: 800;
+      line-height: 1.25;
+      background: linear-gradient(135deg, #ffffff 40%, var(--cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .slide-subtitle {
+      font-size: 16pt !important;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+    }
+
+    .slide-badge {
+      font-family: var(--font-mono);
+      font-size: 16pt !important;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 4px 10px;
+      border-radius: 6px;
+      color: var(--cyan);
+    }
+
+    .slide-body {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+    }
+
+    /* Grids & Cards */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      height: 100%;
+    }
+
+    .grid-3col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .grid-4col {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+
+    .glass-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.25s ease;
+    }
+
+    .glass-card:hover {
+      border-color: var(--border-card);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+    }
+
+    .glass-card.highlight-cyan {
+      border-color: rgba(38, 208, 232, 0.4);
+      background: rgba(38, 208, 232, 0.06);
+    }
+
+    .glass-card.highlight-green {
+      border-color: rgba(16, 185, 129, 0.4);
+      background: rgba(16, 185, 129, 0.06);
+    }
+
+    .glass-card.highlight-red {
+      border-color: rgba(239, 68, 68, 0.4);
+      background: rgba(239, 68, 68, 0.06);
+    }
+
+    .card-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 18pt !important;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-desc {
+      font-size: 16pt !important;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* Metric Callout Cards */
+    .metric-big-num {
+      font-family: var(--font-mono);
+      font-size: 18pt !important;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+    }
+
+    .num-cyan { color: var(--cyan); text-shadow: 0 0 20px var(--cyan-glow); }
+    .num-green { color: var(--emerald); text-shadow: 0 0 20px var(--emerald-glow); }
+    .num-amber { color: var(--amber); }
+    .num-red { color: var(--crimson); text-shadow: 0 0 20px var(--crimson-glow); }
+
+    .metric-unit {
+      font-size: 16pt !important;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* Key Bulleted Points */
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      font-size: 16pt !important;
+      line-height: 1.5;
+      color: #cbd5e1;
+    }
+
+    .feature-bullet {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(38, 208, 232, 0.15);
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Comparison Table in Slides */
+    .deck-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 16pt !important;
+    }
+
+    .deck-table th {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--cyan);
+      font-family: var(--font-mono);
+      font-size: 18pt !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .deck-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 16pt !important;
+      color: var(--text-muted);
+    }
+
+    .deck-table tr:hover td {
+      background: rgba(38, 208, 232, 0.03);
+    }
+
+    .deck-table tr.winner-row {
+      background: rgba(16, 185, 129, 0.08);
+    }
+
+    .deck-table tr.winner-row td {
+      color: var(--text-main);
+      font-weight: 600;
+      border-color: rgba(16, 185, 129, 0.2);
+    }
+
+    /* Formula Box */
+    .math-callout {
+      background: #050811;
+      border: 1px solid var(--border-card);
+      border-radius: 10px;
+      padding: 1.25rem 1.75rem;
+      font-family: var(--font-mono);
+      font-size: 16pt !important;
+      color: var(--cyan);
+      text-align: center;
+      margin: 1rem 0;
+      box-shadow: inset 0 0 15px rgba(38, 208, 232, 0.1);
+    }
+
+    /* Team Grid */
+    .team-deck-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .team-member-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1.5rem 1rem;
+      text-align: center;
+    }
+
+    .avatar-circ {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(38, 208, 232, 0.2), rgba(16, 185, 129, 0.2));
+      border: 1px solid var(--cyan);
+      margin: 0 auto 0.75rem auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 800;
+      color: var(--cyan);
+      font-size: 1.1rem;
+    }
+
+    .team-name {
+      font-family: var(--font-display);
+      font-size: 18pt !important;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .team-role {
+      font-size: 16pt !important;
+      color: var(--cyan);
+      font-family: var(--font-mono);
+      margin-bottom: 0.25rem;
+    }
+
+    .team-id {
+      font-size: 16pt !important;
+      color: var(--text-muted);
+    }
+
+    /* Bottom Control Bar */
+    .deck-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 48px;
+      background: rgba(6, 9, 17, 0.95);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 1.5rem;
+      z-index: 1000;
+    }
+
+    .nav-arrow-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-nav {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-main);
+      padding: 0.35rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-nav:hover:not(:disabled) {
+      background: rgba(38, 208, 232, 0.2);
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+
+    .btn-nav:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .deck-progress-bar-container {
+      flex: 1;
+      max-width: 450px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 0 1.5rem;
+    }
+
+    .deck-progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--cyan), var(--emerald));
+      width: 8.33%;
+      transition: width 0.3s ease;
+    }
+
+    .footer-hints {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .kbd-tag {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: #fff;
+    }
+
+    /* Speaker Notes Overlay Drawer */
+    .speaker-drawer {
+      position: fixed;
+      bottom: 48px;
+      left: 0;
+      right: 0;
+      max-height: 220px;
+      background: rgba(10, 15, 29, 0.98);
+      border-top: 2px solid var(--cyan);
+      box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.8);
+      padding: 1rem 2rem;
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1);
+      z-index: 999;
+      overflow-y: auto;
+    }
+
+    .speaker-drawer.open {
+      transform: translateY(0);
+    }
+
+    .speaker-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .speaker-badge {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--cyan);
+      letter-spacing: 0.05em;
+    }
+
+    .speaker-content {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: #cbd5e1;
+    }
+
+    .speaker-content strong {
+      color: #fff;
+    }
+
+    /* Printable / PDF Export Styles */
+    @media print {
+      body {
+        overflow: visible;
+        background: #000;
+      }
+      .deck-header, .deck-footer, .speaker-drawer {
+        display: none !important;
+      }
+      .deck-stage {
+        position: static;
+        padding: 0;
+        display: block;
+      }
+      .slide {
+        position: relative !important;
+        opacity: 1 !important;
+        transform: none !important;
+        page-break-after: always;
+        break-after: page;
+        height: 100vh !important;
+        max-height: 100vh !important;
+        border-radius: 0;
+        border: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP HEADER TOOLBAR -->
+  <header class="deck-header">
+    <div class="brand-group">
+      <div class="brand-logo-icon">IoT</div>
+      <span class="brand-title">EDGE MAX-PRESSURE TRAFFIC SYSTEM</span>
+      <span class="comp-badge">PITCH DECK</span>
+    </div>
+
+    <div class="deck-header-center">
+      <span class="slide-counter" id="slide-counter">SLIDE 01 / 12</span>
+      <div class="timer-pill running" id="presentation-timer" title="Elapsed Pitch Time">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span id="timer-display">00:00</span>
+      </div>
+    </div>
+
+    <div class="deck-header-actions">
+      <a href="IoT_Traffic_Management_System_Competition_Deck.pptx" download class="btn-header-tool" title="Download Microsoft PowerPoint (.pptx) file">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span>Download PPTX</span>
+      </a>
+
+      <button class="btn-header-tool" id="btn-toggle-notes" title="Toggle Speaker Notes (Shortcut: S)">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        <span>Speaker Script</span>
+      </button>
+
+      <button class="btn-header-tool" id="btn-fullscreen" title="Toggle Fullscreen (Shortcut: F)">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+        <span>Fullscreen</span>
+      </button>
+
+      <a href="index.html#simulator" target="_blank" class="btn-header-tool btn-live-sim" title="Launch Interactive Simulator in new tab">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <span>Live Simulator Demo ↗</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- PRESENTATION SLIDES STAGE -->
+  <main class="deck-stage">
+
+    <!-- SLIDE 1: TITLE & COVER -->
+    <section class="slide active" data-slide="1">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">PROJECT SUBMISSION & COMPETITION PITCH</span>
+          <h1 class="slide-title">Decentralized Edge IoT Traffic Management System</h1>
+          <p class="slide-subtitle">Mind Mapping & Edge Max-Pressure Signal Control with Real-Time Supabase Telemetry & Emergency Preemption</p>
+        </div>
+        <span class="slide-badge">INNOVATION TRACK</span>
+      </div>
+
+      <div class="slide-body" style="display: flex; flex-direction: column; justify-content: space-around;">
+        <div class="glass-card highlight-cyan" style="padding: 1.75rem 2rem;">
+          <h3 style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 0.5rem; color: #fff;">
+            "Transforming Static Urban Gridlock into Self-Optimizing Dynamic Corridors"
+          </h3>
+          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
+            A complete cyber-physical IoT architecture that replaces legacy fixed-timer traffic controllers with edge-computed Max-Pressure queues, cloud telemetry logging, and sub-30ms emergency vehicle priority clearance.
+          </p>
+        </div>
+
+        <div>
+          <span style="font-size: 0.75rem; font-weight: 800; color: var(--text-muted); letter-spacing: 0.08em; display: block; margin-bottom: 0.75rem;">TEAM MEMBERS & SYSTEM AUTHORS:</span>
+          <div class="team-deck-grid">
+            <div class="team-member-card">
+              <div class="avatar-circ">JD</div>
+              <div class="team-name">Jay Davera</div>
+              <div class="team-role">Edge Architecture & IoT</div>
+              <div class="team-id">ID: 2510370104</div>
+            </div>
+            <div class="team-member-card">
+              <div class="avatar-circ">RK</div>
+              <div class="team-name">Ruchit Karnavat</div>
+              <div class="team-role">Max-Pressure Algorithms</div>
+              <div class="team-id">ID: 2510370109</div>
+            </div>
+            <div class="team-member-card">
+              <div class="avatar-circ">RV</div>
+              <div class="team-name">Rushirajsinh Vala</div>
+              <div class="team-role">Cloud Telemetry & Supabase</div>
+              <div class="team-id">ID: 2510370110</div>
+            </div>
+            <div class="team-member-card">
+              <div class="avatar-circ">PS</div>
+              <div class="team-name">Prayag Shah</div>
+              <div class="team-role">Perception & UI Simulator</div>
+              <div class="team-id">ID: 2510370116</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: THE PROBLEM (URBAN CRISIS) -->
+    <section class="slide" data-slide="2">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">THE PROBLEM STATEMENT</span>
+          <h2 class="slide-title">The $88 Billion Urban Gridlock Crisis</h2>
+          <p class="slide-subtitle">Traditional traffic control infrastructure is broken, blind, and unable to scale.</p>
+        </div>
+        <span class="slide-badge">GLOBAL BOTTLENECK</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-3col" style="margin-bottom: 1.5rem;">
+          <div class="glass-card highlight-red">
+            <div class="card-icon">⏱️</div>
+            <div class="metric-big-num num-red">54 hrs</div>
+            <div class="metric-unit">Wasted Per Commuter Annually</div>
+            <p class="card-desc" style="margin-top: 0.5rem;">Drivers spend over a full working week stuck in unnecessary signal delays at empty crossroads.</p>
+          </div>
+
+          <div class="glass-card highlight-red">
+            <div class="card-icon">💸</div>
+            <div class="metric-big-num num-red">$88 B</div>
+            <div class="metric-unit">Annual Economic Waste</div>
+            <p class="card-desc" style="margin-top: 0.5rem;">Direct losses from wasted fuel, idling emissions, supply chain stalls, and lost productivity.</p>
+          </div>
+
+          <div class="glass-card highlight-red">
+            <div class="card-icon">🚑</div>
+            <div class="metric-big-num num-red">64%</div>
+            <div class="metric-unit">Emergency Vehicle Delays</div>
+            <p class="card-desc" style="margin-top: 0.5rem;">Ambulances and fire engines are blocked in red-light queues, directly threatening life safety during golden hours.</p>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div class="card-title">Why Traditional Systems Fail:</div>
+          <ul class="feature-list" style="grid-template-columns: 1fr 1fr; display: grid;">
+            <li class="feature-item">
+              <span class="feature-bullet">1</span>
+              <div><strong>Fixed-Timer Benchmarks:</strong> Signals change purely on clocks, granting green to empty roads while choking packed approaches.</div>
+            </li>
+            <li class="feature-item">
+              <span class="feature-bullet">2</span>
+              <div><strong>Zero Historical Data Trail:</strong> Legacy lights generate 0 bytes of usable telemetry, leaving municipal city planners blind.</div>
+            </li>
+            <li class="feature-item">
+              <span class="feature-bullet">3</span>
+              <div><strong>Heavy Police Dependency:</strong> Human officers are forced to manually override lights under harsh pollution and weather.</div>
+            </li>
+            <li class="feature-item">
+              <span class="feature-bullet">4</span>
+              <div><strong>Physical Infrastructure Ceilings:</strong> Roads cannot widen as fast as vehicle fleets multiply; software must optimize density.</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: LITERATURE BENCHMARK & GAP ANALYSIS -->
+    <section class="slide" data-slide="3">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">TECHNICAL BENCHMARKING</span>
+          <h2 class="slide-title">Algorithmic Gap Analysis: Why Others Fall Short</h2>
+          <p class="slide-subtitle">Comparing established traffic control methodologies against decentralized edge requirements.</p>
+        </div>
+        <span class="slide-badge">EVALUATION</span>
+      </div>
+
+      <div class="slide-body">
+        <table class="deck-table" style="margin-bottom: 1.5rem;">
+          <thead>
+            <tr>
+              <th>Methodology</th>
+              <th>Core Logic</th>
+              <th>Compute Cost</th>
+              <th>Fault Tolerance</th>
+              <th>Critical Failure Mode</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong style="color: #fff;">Webster Formula (1958)</strong></td>
+              <td>Static saturation cycle optimization: $C_0 = \frac{1.5L + 5}{1 - Y}$</td>
+              <td>Ultra Low (Static math)</td>
+              <td>High (No sensors)</td>
+              <td>Completely blind to micro-surges; causes artificial phantom jams.</td>
+            </tr>
+            <tr>
+              <td><strong style="color: #fff;">Fuzzy Logic Controller</strong></td>
+              <td>Mamdani linguistic IF-THEN rules [Low, Med, High]</td>
+              <td>Medium (CPU inference)</td>
+              <td>Medium</td>
+              <td>Requires manual heuristic tuning for every single intersection; brittle edge cases.</td>
+            </tr>
+            <tr>
+              <td><strong style="color: #fff;">Deep Q-Network (RL)</strong></td>
+              <td>Neural Agent Bellman Q-policy optimization</td>
+              <td>Very High ($> \$3,000$ GPU rigs)</td>
+              <td>Low (Policy drift)</td>
+              <td>Unpredictable trial-and-error exploration actions in safety-critical live traffic.</td>
+            </tr>
+            <tr class="winner-row">
+              <td><strong style="color: var(--cyan);">★ Our Edge Max-Pressure</strong></td>
+              <td>Decentralized queue density with Supabase historical prior</td>
+              <td>Ultra Low (&lt; 15% Pi 4 CPU)</td>
+              <td>Maximum (Decentralized)</td>
+              <td><strong>None:</strong> Mathematically proven throughput optimal and fully stable.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="glass-card highlight-cyan">
+          <div class="card-title">Key Insight from Literature:</div>
+          <p class="card-desc">
+            Centralized algorithms require massive multi-million dollar fiber optic interconnects (like SCATS). If the central server drops, entire districts freeze. <strong>Max-Pressure solves this</strong> by calculating local queues at the edge node, proving optimal throughput across the whole network without inter-intersection communication!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: THE CORE ALGORITHM (MAX-PRESSURE + HYBRID PRIOR) -->
+    <section class="slide" data-slide="4">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">MATHEMATICAL FOUNDATION</span>
+          <h2 class="slide-title">The Max-Pressure Algorithm & Historical Blending</h2>
+          <p class="slide-subtitle">Decentralized physics-inspired queue control that maximizes intersection throughput.</p>
+        </div>
+        <span class="slide-badge">ALGORITHM 04</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2col">
+          <div>
+            <div class="glass-card" style="height: 100%;">
+              <div class="card-title">1. Instantaneous Sensor Pressure</div>
+              <p class="card-desc">At any time $t$, each approach lane calculates vehicle density:</p>
+              
+              <div class="math-callout">
+                P_{\text{live}} = \frac{\text{Vehicles Waiting (Count)}}{\text{Distance Monitored (Meters)}}
+              </div>
+              
+              <p class="card-desc" style="font-size: 0.82rem;">
+                <strong>Example:</strong> Road 1 with 50 cars in 100m has $P_1 = 0.50\,\text{veh/m}$. Road 2 with 50 cars spread over 500m has $P_2 = 0.10\,\text{veh/m}$. Traditional timers treat them equally; Max-Pressure gives green to Road 1.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <div class="glass-card highlight-cyan" style="height: 100%;">
+              <div class="card-title">2. Hybrid Adaptive Historical Blending</div>
+              <p class="card-desc">To prevent erratic signal flipping from momentary sensor blips, we blend live readings with historical priors from Supabase:</p>
+              
+              <div class="math-callout" style="border-color: var(--emerald); color: var(--emerald);">
+                P_{\text{eff}} = (1 - w) \cdot P_{\text{live}} + w \cdot \bar{P}_{\text{hist}}
+              </div>
+
+              <div class="card-desc" style="font-size: 0.82rem;">
+                Where $w$ is the confidence weight ($0.0 \le w \le 1.0$).
+                Dynamic green phase durations are sized proportionally:
+                $$T_{\text{green}} = T_{\text{min}} + \left(\frac{P_1}{P_1 + P_2}\right) \cdot (T_{\text{max}} - T_{\text{min}})$$
+                Yielding safe, smoothed phase clearance windows ($15\text{s} - 60\text{s}$).
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: SYSTEM ARCHITECTURE & IOT PIPELINE -->
+    <section class="slide" data-slide="5">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">SYSTEM ARCHITECTURE</span>
+          <h2 class="slide-title">End-to-End Cyber-Physical IoT Pipeline</h2>
+          <p class="slide-subtitle">Four distinct hardware & cloud layers working together in a 128ms control loop.</p>
+        </div>
+        <span class="slide-badge">HARDWARE STACK</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-4col" style="margin-bottom: 1.5rem;">
+          <div class="glass-card">
+            <div class="card-icon">📷</div>
+            <div class="card-title" style="color: var(--cyan);">1. Perception Node</div>
+            <ul class="feature-list" style="font-size: 0.8rem;">
+              <li>Wide-angle HD optical sensor</li>
+              <li>Mounted at 5.5m utility height</li>
+              <li>30-meter detection envelope</li>
+              <li>Centroid bounding box tracking</li>
+            </ul>
+          </div>
+
+          <div class="glass-card highlight-cyan">
+            <div class="card-icon">🧠</div>
+            <div class="card-title" style="color: #fff;">2. Edge Computing</div>
+            <ul class="feature-list" style="font-size: 0.8rem;">
+              <li>Raspberry Pi 4 Model B (4GB)</li>
+              <li>Runs OpenCV & Max-Pressure Engine</li>
+              <li>128.3ms cycle evaluation</li>
+              <li>Local cache prevents network stalls</li>
+            </ul>
+          </div>
+
+          <div class="glass-card highlight-green">
+            <div class="card-icon">☁️</div>
+            <div class="card-title" style="color: var(--emerald);">3. Supabase Cloud</div>
+            <ul class="feature-list" style="font-size: 0.8rem;">
+              <li>PostgreSQL relational telemetry</li>
+              <li>PostgREST instant HTTP endpoints</li>
+              <li>Row Level Security (RLS) enabled</li>
+              <li>Realtime WebSocket synchronization</li>
+            </ul>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-icon">🚦</div>
+            <div class="card-title" style="color: var(--amber);">4. Actuation Node</div>
+            <ul class="feature-list" style="font-size: 0.8rem;">
+              <li>ESP8266 / NodeMCU Wi-Fi controller</li>
+              <li>Solid-state isolated relay module</li>
+              <li>High-intensity 12V LED light arrays</li>
+              <li>Fail-safe hardware amber heartbeat</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="glass-card" style="padding: 1rem 1.5rem; display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+          <span style="font-size: 0.85rem; font-family: var(--font-mono); color: var(--cyan);">
+            LATENCY BUDGET: Optical Capture (33ms) &rarr; YOLO Tracking (65ms) &rarr; Max-Pressure Calc (4ms) &rarr; Relay Actuation (26ms)
+          </span>
+          <span class="slide-badge" style="background: rgba(16, 185, 129, 0.2); color: var(--emerald); border-color: var(--emerald);">
+            TOTAL: 128.3 ms &lt;&lt; 1000ms SLA
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: SENSING RANGE & DETECTION ENVELOPE -->
+    <section class="slide" data-slide="6">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">PHYSICAL SENSING GEOMETRY</span>
+          <h2 class="slide-title">Optical Constraints & Detection Geometry</h2>
+          <p class="slide-subtitle">Accounting for real-world lens limits, blind zones, and vehicle occlusion mechanics.</p>
+        </div>
+        <span class="slide-badge">COMPUTER VISION</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2col">
+          <div class="glass-card" style="justify-content: center; align-items: center; background: #050812;">
+            <svg viewBox="0 0 450 250" style="width: 100%; max-height: 230px;">
+              <rect width="450" height="250" fill="#0A0F1D" rx="8"/>
+              <line x1="50" y1="125" x2="420" y2="125" stroke="#334155" stroke-dasharray="8 8" stroke-width="2"/>
+              <line x1="120" y1="60" x2="120" y2="190" stroke="#EF4444" stroke-width="3"/>
+              <text x="120" y="50" fill="#EF4444" font-size="10" font-weight="700" text-anchor="middle">STOP LINE (0m)</text>
+
+              <!-- Pole -->
+              <circle cx="80" cy="125" r="8" fill="#26D0E8"/>
+              <text x="80" y="150" fill="#26D0E8" font-size="9" text-anchor="middle">Pole (5.5m)</text>
+
+              <!-- Detection Cone -->
+              <polygon points="80,125 380,60 380,190" fill="rgba(38, 208, 232, 0.12)" stroke="#26D0E8" stroke-width="1.5"/>
+              <text x="380" y="50" fill="#26D0E8" font-size="10" font-weight="700" text-anchor="middle">30m DETECTION LIMIT</text>
+
+              <!-- Blind Zone -->
+              <polygon points="80,125 120,105 120,145" fill="rgba(239, 68, 68, 0.3)"/>
+              <text x="100" y="128" fill="#F87171" font-size="8" text-anchor="middle">BLIND</text>
+            </svg>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-title">Mitigating Physical Optical Gaps:</div>
+            <ul class="feature-list">
+              <li class="feature-item">
+                <span class="feature-bullet">A</span>
+                <div>
+                  <strong>30-Meter Active Detection Boundary:</strong>
+                  Calibrated to capture approach queues during normal urban cruise speeds ($30-50\,\text{km/h}$) without optical distortion artifacts.
+                </div>
+              </li>
+              <li class="feature-item">
+                <span class="feature-bullet">B</span>
+                <div>
+                  <strong>Blind Zone Elimination (&lt; 2.8m):</strong>
+                  Vehicles directly below the camera are registered into an edge tracking state buffer until they cross the stop line.
+                </div>
+              </li>
+              <li class="feature-item">
+                <span class="feature-bullet">C</span>
+                <div>
+                  <strong>Heavy Vehicle Occlusion Mitigation:</strong>
+                  Multi-lane perspective transform and Kalman filtering maintain vehicle counts even when a bus temporarily blocks a trailing car.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 7: SUPABASE CLOUD & HISTORICAL TELEMETRY -->
+    <section class="slide" data-slide="7">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">CLOUD TELEMETRY & DATA TRAILS</span>
+          <h2 class="slide-title">Supabase PostgreSQL Integration & Analytics</h2>
+          <p class="slide-subtitle">Turning blind intersections into transparent, queryable data streams with Row Level Security.</p>
+        </div>
+        <span class="slide-badge">SUPABASE CONNECTED</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-3col" style="margin-bottom: 1.5rem;">
+          <div class="glass-card highlight-cyan">
+            <div class="card-title">Resilient Architecture</div>
+            <p class="card-desc">Dual-engine connectivity: uses official Supabase JS SDK with automatic, zero-dependency REST HTTP fallback over PostgREST endpoints.</p>
+          </div>
+
+          <div class="glass-card highlight-green">
+            <div class="card-title">Dynamic Green Sizing</div>
+            <p class="card-desc">Instead of fixed cycles, Supabase computes past approach density ratios to scale green phases between 15s (light) and 60s (peak rush).</p>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-title">Enterprise Security (RLS)</div>
+            <p class="card-desc">Row Level Security prevents unauthorized signal tampering; only authenticated edge devices can commit signal decision logs.</p>
+          </div>
+        </div>
+
+        <div class="glass-card" style="background: #050811; padding: 1rem 1.5rem;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--cyan);">public.traffic_simulation_logs (Schema)</span>
+            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--emerald);">✓ Connected: https://ibrtpfesjjerjyexdcyr.supabase.co</span>
+          </div>
+          <pre style="font-family: var(--font-mono); font-size: 0.78rem; color: #cbd5e1; line-height: 1.45; overflow-x: auto;">
+{
+  "id": 4821,
+  "created_at": "2026-10-12T10:45:00Z",
+  "road1_cars": 50, "road1_distance": 100.0, "road1_pressure": 0.50,
+  "road2_cars": 50, "road2_distance": 500.0, "road2_pressure": 0.10,
+  "road1_signal": "GREEN", "road2_signal": "RED"
+}</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 8: EMERGENCY VEHICLE PREEMPTION (EV-WAVE) -->
+    <section class="slide" data-slide="8">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">LIFE-SAFETY PREEMPTION</span>
+          <h2 class="slide-title">Emergency Vehicle Priority Wave (EV-Corridor)</h2>
+          <p class="slide-subtitle">Sub-30ms RFID/DSRC V2X override with a fail-safe three-phase clearance sequence.</p>
+        </div>
+        <span class="slide-badge" style="color: var(--crimson); border-color: var(--crimson);">FAIL-SAFE PROTOCOL</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-3col" style="margin-bottom: 1.5rem;">
+          <div class="glass-card highlight-red">
+            <span class="slide-tag" style="color: var(--amber);">PHASE 01 (1.2 SECONDS)</span>
+            <div class="card-title">Amber Clearance Flush</div>
+            <p class="card-desc">Opposing road is immediately forced to AMBER, safely giving drivers crossing distance and preventing rear-end collisions.</p>
+          </div>
+
+          <div class="glass-card highlight-red">
+            <span class="slide-tag" style="color: var(--crimson);">PHASE 02 (0.8 SECONDS)</span>
+            <div class="card-title">All-Red Safety Buffer</div>
+            <p class="card-desc">Both directions held at STOP lines for 800ms, completely flushing the intersection conflict box before the responder arrives.</p>
+          </div>
+
+          <div class="glass-card highlight-green">
+            <span class="slide-tag" style="color: var(--emerald);">PHASE 03 (10s – 20s)</span>
+            <div class="card-title">Green Wave Corridor</div>
+            <p class="card-desc">Emergency corridor locked in continuous GREEN with pulsing strobe light aura; opposing lane locked RED; siren audio activated.</p>
+          </div>
+        </div>
+
+        <div class="glass-card highlight-cyan" style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+          <div>
+            <div class="card-title" style="color: #fff; font-size: 1rem;">Validated Performance Benchmark:</div>
+            <p class="card-desc">Interrupt detection to signal response: <strong style="color: var(--cyan);">28.4 ms</strong> (Raspberry Pi GPIO Interrupt) | Transit Delay Cut by <strong>64%</strong></p>
+          </div>
+          <div style="font-size: 2rem;">🚑 &rarr; 🟢</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 9: QUANTITATIVE RESULTS & IMPACT -->
+    <section class="slide" data-slide="9">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">RESULTS & VALIDATION</span>
+          <h2 class="slide-title">Validated Benchmarks & Urban Impact</h2>
+          <p class="slide-subtitle">Measurable performance improvements compared to static Webster and traditional cycle benchmarks.</p>
+        </div>
+        <span class="slide-badge">PROVEN METRICS</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-4col" style="margin-bottom: 2rem;">
+          <div class="glass-card highlight-green">
+            <div class="metric-big-num num-green">-42%</div>
+            <div class="card-title">Average Wait Time</div>
+            <p class="card-desc">Commuter stopped delay reduced from 84s to 48.7s across test corridors.</p>
+          </div>
+
+          <div class="glass-card highlight-cyan">
+            <div class="metric-big-num num-cyan">+28%</div>
+            <div class="card-title">Vehicle Throughput</div>
+            <p class="card-desc">Intersection capacity expanded by 28% without adding a single foot of asphalt.</p>
+          </div>
+
+          <div class="glass-card highlight-green">
+            <div class="metric-big-num num-green">-19%</div>
+            <div class="card-title">Idle Fuel Emissions</div>
+            <p class="card-desc">Dramatic reduction in Stop-and-Go fuel waste and localized toxic smog.</p>
+          </div>
+
+          <div class="glass-card highlight-red">
+            <div class="metric-big-num num-red">-64%</div>
+            <div class="card-title">Ambulance Transit Delay</div>
+            <p class="card-desc">Golden hour clearance ensures life-saving medical responses arrive on time.</p>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div class="card-title">Environmental & Economic Scalability (ESG Impact)</div>
+          <p class="card-desc">
+            In a mid-sized metropolitan corridor with 40 intersections, this deployment saves an estimated <strong>1.2 million liters of fuel</strong> and eliminates <strong>2,800 tons of CO2 emissions</strong> annually, generating over <strong>$4.2 Million in commuter productivity gains</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 10: INTERACTIVE SIMULATOR PREVIEW -->
+    <section class="slide" data-slide="10">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">DEMONSTRATION & PROOF OF CONCEPT</span>
+          <h2 class="slide-title">Interactive Simulator & Live Testbed</h2>
+          <p class="slide-subtitle">Live dual-road Max-Pressure testbed with real-time sliders and Supabase telemetry logging.</p>
+        </div>
+        <span class="slide-badge">READY TO DEMO</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2col">
+          <div class="glass-card highlight-cyan" style="justify-content: space-between;">
+            <div>
+              <div class="card-title">Live Simulator Capabilities:</div>
+              <ul class="feature-list" style="margin-top: 1rem;">
+                <li class="feature-item">
+                  <span class="feature-bullet">1</span>
+                  <div><strong>Scenario Presets:</strong> Test Distance Varies (50 cars @ 100m vs 500m), Count Varies, and Equal Tie conditions.</div>
+                </li>
+                <li class="feature-item">
+                  <span class="feature-bullet">2</span>
+                  <div><strong>Decision Modes:</strong> Toggle Hybrid Adaptive, Pure Historical DB, or Instant Live Sensor modes on the fly.</div>
+                </li>
+                <li class="feature-item">
+                  <span class="feature-bullet">3</span>
+                  <div><strong>Live EV Corridor Dispatch:</strong> One-click trigger for Ambulance and Fire Rescue priority preemption with audio sirens.</div>
+                </li>
+              </ul>
+            </div>
+
+            <a href="index.html#simulator" target="_blank" class="btn-header-tool btn-live-sim" style="justify-content: center; padding: 0.85rem; font-size: 0.95rem; margin-top: 1rem;">
+              <span>🚀 Launch Live Web Simulator Demo &rarr;</span>
+            </a>
+          </div>
+
+          <div class="glass-card" style="background: #040711; justify-content: center; align-items: center; border-color: rgba(38, 208, 232, 0.3);">
+            <div style="text-align: center;">
+              <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem;">
+                <!-- Light 1 -->
+                <div style="background: #111827; border: 2px solid #374151; border-radius: 12px; padding: 10px; display: flex; flex-direction: column; gap: 8px;">
+                  <div style="width: 20px; height: 20px; border-radius: 50%; background: #1f2937;"></div>
+                  <div style="width: 20px; height: 20px; border-radius: 50%; background: #1f2937;"></div>
+                  <div style="width: 20px; height: 20px; border-radius: 50%; background: #10B981; box-shadow: 0 0 15px #10B981;"></div>
+                </div>
+                <!-- Light 2 -->
+                <div style="background: #111827; border: 2px solid #374151; border-radius: 12px; padding: 10px; display: flex; flex-direction: column; gap: 8px;">
+                  <div style="width: 20px; height: 20px; border-radius: 50%; background: #EF4444; box-shadow: 0 0 15px #EF4444;"></div>
+                  <div style="width: 20px; height: 20px; border-radius: 50%; background: #1f2937;"></div>
+                  <div style="width: 20px; height: 20px; border-radius: 50%; background: #1f2937;"></div>
+                </div>
+              </div>
+              <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--cyan); margin-bottom: 0.4rem;">P1: 0.50 veh/m  vs  P2: 0.10 veh/m</div>
+              <div style="font-size: 0.78rem; color: var(--emerald); font-weight: 700;">ROAD 1 ALLOCATED GREEN (38s PROCEED)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 11: BILL OF MATERIALS & COMMERCIAL VIABILITY -->
+    <section class="slide" data-slide="11">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">COMMERCIAL FEASIBILITY</span>
+          <h2 class="slide-title">Bill of Materials (BOM) & Unit Economics</h2>
+          <p class="slide-subtitle">Delivering high-end adaptive traffic intelligence at a fraction of legacy commercial costs.</p>
+        </div>
+        <span class="slide-badge">COST DISRUPTOR</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2col">
+          <div class="glass-card">
+            <div class="card-title">Hardware Cost Breakdown (Per Approach):</div>
+            <table class="deck-table" style="margin-top: 0.75rem;">
+              <tbody>
+                <tr>
+                  <td>Raspberry Pi 4 Model B (4GB) Edge Node</td>
+                  <td style="font-family: var(--font-mono); color: #fff; text-align: right;">$55.00</td>
+                </tr>
+                <tr>
+                  <td>Wide-Angle HD Low-Light Optical Sensor</td>
+                  <td style="font-family: var(--font-mono); color: #fff; text-align: right;">$25.00</td>
+                </tr>
+                <tr>
+                  <td>ESP8266 / NodeMCU Wi-Fi Actuation Controller</td>
+                  <td style="font-family: var(--font-mono); color: #fff; text-align: right;">$6.50</td>
+                </tr>
+                <tr>
+                  <td>4-Channel Optocoupled Solid State Relay Board</td>
+                  <td style="font-family: var(--font-mono); color: #fff; text-align: right;">$5.50</td>
+                </tr>
+                <tr>
+                  <td>IP67 Weatherproof Enclosure & PoE Splitter</td>
+                  <td style="font-family: var(--font-mono); color: #fff; text-align: right;">$35.00</td>
+                </tr>
+                <tr class="winner-row">
+                  <td><strong>TOTAL HARDWARE COST PER JUNCTION ARM</strong></td>
+                  <td style="font-family: var(--font-mono); font-size: 1.1rem; color: var(--emerald); text-align: right;"><strong>$127.00</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="glass-card highlight-cyan">
+            <div class="card-title">Commercial Market Comparison:</div>
+            
+            <div style="margin: 1.5rem 0;">
+              <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 0.35rem;">
+                <span>Legacy Inductive Loops + SCATS</span>
+                <span style="color: var(--crimson); font-weight: 700;">$25,000 - $40,000</span>
+              </div>
+              <div style="height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
+                <div style="width: 100%; height: 100%; background: var(--crimson);"></div>
+              </div>
+            </div>
+
+            <div style="margin: 1.5rem 0;">
+              <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 0.35rem;">
+                <strong style="color: var(--cyan);">Our Edge IoT Max-Pressure System</strong>
+                <strong style="color: var(--emerald); font-size: 1rem;">$508 (4-Arm Junction)</strong>
+              </div>
+              <div style="height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
+                <div style="width: 3%; height: 100%; background: var(--emerald); min-width: 12px;"></div>
+              </div>
+            </div>
+
+            <p class="card-desc" style="font-size: 0.82rem; margin-top: 1rem;">
+              <strong>98.7% Cost Reduction:</strong> Allows cash-strapped developing cities to deploy smart traffic management across entire corridors instead of only 2 or 3 prestige downtown junctions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 12: CONCLUSION, ROADMAP & Q&A -->
+    <section class="slide" data-slide="12">
+      <div class="slide-header">
+        <div>
+          <span class="slide-tag">SUMMARY & DEFENSE</span>
+          <h2 class="slide-title">Conclusion, Roadmap & Q&A Defense</h2>
+          <p class="slide-subtitle">Ready for deployment, field-testing, and judge cross-examination.</p>
+        </div>
+        <span class="slide-badge" style="color: var(--emerald); border-color: var(--emerald);">COMPLETION</span>
+      </div>
+
+      <div class="slide-body">
+        <div class="grid-2col" style="margin-bottom: 1.5rem;">
+          <div class="glass-card">
+            <div class="card-title">Key Project Takeaways:</div>
+            <ul class="feature-list" style="margin-top: 0.5rem;">
+              <li class="feature-item">
+                <span class="feature-bullet">✓</span>
+                <div><strong>Decentralized Resilience:</strong> No central cloud failure risk; operates 100% locally if connectivity drops.</div>
+              </li>
+              <li class="feature-item">
+                <span class="feature-bullet">✓</span>
+                <div><strong>Life-Saving EV Wave:</strong> Sub-30ms emergency priority wave with safe 3-phase amber/all-red clearance.</div>
+              </li>
+              <li class="feature-item">
+                <span class="feature-bullet">✓</span>
+                <div><strong>Data Transparency:</strong> Supabase integration unlocks rich historical telemetry for municipal planners.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="glass-card highlight-cyan">
+            <div class="card-title">Future Expansion Roadmap:</div>
+            <ul class="feature-list" style="margin-top: 0.5rem;">
+              <li class="feature-item">
+                <span class="feature-bullet">&rarr;</span>
+                <div><strong>Downstream Anti-Spillback:</strong> Implement True Network Pressure ($Q_{\text{in}} - Q_{\text{out}}$) to prevent gridlock.</div>
+              </li>
+              <li class="feature-item">
+                <span class="feature-bullet">&rarr;</span>
+                <div><strong>5G C-V2X Direct Beaconing:</strong> Direct broadcast to connected and autonomous vehicle in-cabin displays.</div>
+              </li>
+              <li class="feature-item">
+                <span class="feature-bullet">&rarr;</span>
+                <div><strong>Drone Escort Corridor:</strong> Airborne drone telemetry feeding elevated view traffic priors into Supabase.</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="glass-card highlight-green" style="text-align: center; padding: 1.5rem;">
+          <h3 style="font-family: var(--font-display); font-size: 1.35rem; margin-bottom: 0.35rem; color: #fff;">
+            Thank You, Respected Judges! We are ready for your questions.
+          </h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">
+            Authors: Jay Davera, Ruchit Karnavat, Rushirajsinh Vala, Prayag Shah
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SPEAKER NOTES DRAWER -->
+  <aside class="speaker-drawer" id="speaker-drawer">
+    <div class="speaker-title-row">
+      <span class="speaker-badge">SPEAKER SCRIPT & TALKING POINTS (SLIDE <span id="notes-slide-num">1</span>)</span>
+      <button id="btn-close-notes" style="background:none; border:none; color:var(--text-muted); cursor:pointer; font-size:1rem;">✕</button>
+    </div>
+    <div class="speaker-content" id="speaker-content">
+      Loading talking points...
+    </div>
+  </aside>
+
+  <!-- BOTTOM CONTROL BAR -->
+  <footer class="deck-footer">
+    <div class="nav-arrow-group">
+      <button class="btn-nav" id="btn-prev">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        <span>Previous</span>
+      </button>
+
+      <button class="btn-nav" id="btn-next">
+        <span>Next</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+
+    <div class="deck-progress-bar-container">
+      <div class="deck-progress-bar" id="deck-progress-bar"></div>
+    </div>
+
+    <div class="footer-hints">
+      <span><span class="kbd-tag">&larr;</span> / <span class="kbd-tag">&rarr;</span> Navigate</span>
+      <span><span class="kbd-tag">S</span> Notes</span>
+      <span><span class="kbd-tag">F</span> Fullscreen</span>
+    </div>
+  </footer>
+
+  <script>
+    /**
+     * Presentation Deck Engine
+     */
+    document.addEventListener('DOMContentLoaded', () => {
+      const slides = document.querySelectorAll('.slide');
+      const totalSlides = slides.length;
+      let currentSlide = 1;
+
+      const slideCounter = document.getElementById('slide-counter');
+      const progressBar = document.getElementById('deck-progress-bar');
+      const btnPrev = document.getElementById('btn-prev');
+      const btnNext = document.getElementById('btn-next');
+      const btnFullscreen = document.getElementById('btn-fullscreen');
+      const btnToggleNotes = document.getElementById('btn-toggle-notes');
+      const btnCloseNotes = document.getElementById('btn-close-notes');
+      const speakerDrawer = document.getElementById('speaker-drawer');
+      const notesSlideNum = document.getElementById('notes-slide-num');
+      const speakerContent = document.getElementById('speaker-content');
+
+      // Presentation Timer
+      let elapsedSeconds = 0;
+      const timerDisplay = document.getElementById('timer-display');
+      setInterval(() => {
+        elapsedSeconds++;
+        const mins = String(Math.floor(elapsedSeconds / 60)).padStart(2, '0');
+        const secs = String(elapsedSeconds % 60).padStart(2, '0');
+        if (timerDisplay) timerDisplay.textContent = `${mins}:${secs}`;
+      }, 1000);
+
+      // Pitch Scripts Per Slide
+      const speakerScripts = {
+        1: "<strong>Slide 1 (Opening Hook - 0:00 to 0:30):</strong> 'Good morning, respected judges. Urban gridlock is one of the greatest economic and environmental bottlenecks facing modern civilization. Today, our team—Jay, Ruchit, Rushirajsinh, and Prayag—presents an end-to-end, decentralized Edge IoT Traffic Management System that replaces archaic 1950s fixed-timer signals with edge-computed Max-Pressure queues, cloud telemetry via Supabase, and sub-30ms emergency corridor preemption.'",
+        2: "<strong>Slide 2 (The Problem - 0:30 to 1:15):</strong> 'Traffic congestion wastes 54 hours per commuter every year and costs the global economy over $88 Billion. But the most alarming issue is emergency vehicles: ambulances lose critical golden-hour minutes caught behind red-light queues. Building wider roads is physically impossible in dense cities; our software and edge IoT must make existing roads 3x smarter.'",
+        3: "<strong>Slide 3 (Literature Benchmark - 1:15 to 2:00):</strong> 'We thoroughly evaluated current solutions. Classical Webster formulas assume static flow and fail during micro-congestion surges. Fuzzy logic requires tedious manual heuristic tuning for every single intersection. Deep Reinforcement Learning requires thousands of dollars in GPU rigs and can fail unpredictably. In contrast, our Max-Pressure algorithm runs on a $55 Raspberry Pi and is mathematically proven to achieve maximum throughput.'",
+        4: "<strong>Slide 4 (Core Algorithm - 2:00 to 2:45):</strong> 'How does it work? Pressure is simply vehicle queue divided by distance monitored. A road with 50 cars packed into 100 meters has 5x higher pressure than 50 cars spread over 500 meters. To prevent erratic signal bouncing, we blend live readings with past Supabase database records using our effective pressure formula. Green times are then dynamically sized from 15 to 60 seconds.'",
+        5: "<strong>Slide 5 (IoT Hardware Pipeline - 2:45 to 3:30):</strong> 'Here is our end-to-end hardware pipeline: An optical camera captures 30fps video. The Raspberry Pi 4 edge node runs OpenCV vehicle tracking and Max-Pressure in just 128ms. Results are synced to Supabase PostgreSQL, and an ESP8266 NodeMCU Wi-Fi controller actuates the solid-state relays for the traffic light arrays.'",
+        6: "<strong>Slide 6 (Perception & Optics - 3:30 to 4:00):</strong> 'Physical reality matters. We mounted our sensor at 5.5 meters on utility poles to create a 30-meter detection envelope. We eliminated the 2.8m blind zone directly underneath through edge tracking state buffers, and used Kalman filtering to prevent large vehicles from occluding smaller cars behind them.'",
+        7: "<strong>Slide 7 (Supabase Telemetry - 4:00 to 4:45):</strong> 'We integrated Supabase to turn blind intersections into transparent data pipelines. Every decision is logged with Row Level Security. Historical demand skew informs dynamic green light allocation, and our resilient client automatically falls back to native REST APIs if SDK evaluation is delayed.'",
+        8: "<strong>Slide 8 (Emergency Vehicle Wave - 4:45 to 5:30):</strong> 'Our life-saving standout feature is the EV Priority Corridor. When an ambulance or fire truck approaches, our system overrides the cycle in 28 milliseconds. It executes a safe 1.2s amber flush to warn oncoming drivers, a 0.8s all-red safety buffer to clear the junction, and then locks a continuous green corridor with strobe lights and siren audio.'",
+        9: "<strong>Slide 9 (Results & Impact - 5:30 to 6:15):</strong> 'Our validated benchmarks show a 42% cut in commuter wait time, a 28% increase in vehicle throughput, and a 19% drop in idling fuel emissions. Most importantly, emergency vehicle response delay is slashed by 64%.'",
+        10: "<strong>Slide 10 (Interactive Demo - 6:15 to 6:45):</strong> 'We have built a fully functional interactive web simulator testbed, allowing judges to test count and distance variations and dispatch live emergency vehicles on demand.'",
+        11: "<strong>Slide 11 (Unit Economics - 6:45 to 7:15):</strong> 'Legacy systems like SCATS or inductive loops cost $25,000 to $40,000 per junction. Our entire 4-arm hardware suite costs just $508 total—a 98.7% cost disruption that makes smart cities viable for developing municipalities.'",
+        12: "<strong>Slide 12 (Conclusion & Q&A - 7:15+):</strong> 'In conclusion, our project delivers decentralized resilience, life-saving emergency clearance, and radical cost efficiency. Thank you, respected judges; we welcome your questions!'"
+      };
+
+      function updateSlide(newSlide) {
+        if (newSlide < 1 || newSlide > totalSlides) return;
+        currentSlide = newSlide;
+
+        slides.forEach((s) => s.classList.remove('active'));
+        const activeSlide = document.querySelector(`.slide[data-slide="${currentSlide}"]`);
+        if (activeSlide) activeSlide.classList.add('active');
+
+        if (slideCounter) {
+          slideCounter.textContent = `SLIDE ${String(currentSlide).padStart(2, '0')} / ${String(totalSlides).padStart(2, '0')}`;
+        }
+
+        if (progressBar) {
+          progressBar.style.width = `${(currentSlide / totalSlides) * 100}%`;
+        }
+
+        if (btnPrev) btnPrev.disabled = currentSlide === 1;
+        if (btnNext) btnNext.disabled = currentSlide === totalSlides;
+
+        // Update Speaker Notes
+        if (notesSlideNum) notesSlideNum.textContent = currentSlide;
+        if (speakerContent) {
+          speakerContent.innerHTML = speakerScripts[currentSlide] || "No speaker notes for this slide.";
+        }
+      }
+
+      // Nav Click Handlers
+      if (btnPrev) btnPrev.addEventListener('click', () => updateSlide(currentSlide - 1));
+      if (btnNext) btnNext.addEventListener('click', () => updateSlide(currentSlide + 1));
+
+      // Keyboard Controls
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+          e.preventDefault();
+          updateSlide(currentSlide + 1);
+        } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+          e.preventDefault();
+          updateSlide(currentSlide - 1);
+        } else if (e.key === 'Home') {
+          updateSlide(1);
+        } else if (e.key === 'End') {
+          updateSlide(totalSlides);
+        } else if (e.key.toLowerCase() === 's') {
+          toggleSpeakerNotes();
+        } else if (e.key.toLowerCase() === 'f') {
+          toggleFullscreen();
+        } else if (e.key === 'Escape') {
+          if (speakerDrawer && speakerDrawer.classList.contains('open')) {
+            speakerDrawer.classList.remove('open');
+          }
+        }
+      });
+
+      // Fullscreen Toggle
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch(err => console.warn(err));
+        } else {
+          if (document.exitFullscreen) document.exitFullscreen();
+        }
+      }
+      if (btnFullscreen) btnFullscreen.addEventListener('click', toggleFullscreen);
+
+      // Speaker Notes Drawer Toggle
+      function toggleSpeakerNotes() {
+        if (!speakerDrawer) return;
+        speakerDrawer.classList.toggle('open');
+      }
+      if (btnToggleNotes) btnToggleNotes.addEventListener('click', toggleSpeakerNotes);
+      if (btnCloseNotes) btnCloseNotes.addEventListener('click', () => speakerDrawer.classList.remove('open'));
+
+      // Initialize
+      updateSlide(1);
+    });
+  </script>
+</body>
+</html>

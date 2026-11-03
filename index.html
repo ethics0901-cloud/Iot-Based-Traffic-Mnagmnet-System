@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IoT Based Traffic Management System | Smart City Edge IoT Showcase</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Cyber Background Canvas -->
+  <canvas id="cyber-canvas"></canvas>
+  <div class="bg-grid-overlay"></div>
+
+  <!-- Navigation Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="#hero" class="brand-logo">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#26D0E8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="2" width="12" height="20" rx="6"/>
+            <circle cx="12" cy="6" r="2" fill="#EF4444" stroke="none"/>
+            <circle cx="12" cy="12" r="2" fill="#F59E0B" stroke="none"/>
+            <circle cx="12" cy="18" r="2" fill="#10B981" stroke="none"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">IoT Traffic System</span>
+          <span class="brand-tag">MIND MAPPING</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#problems" class="nav-link">Problems</a>
+        <a href="#architecture" class="nav-link">Architecture</a>
+        <a href="#algorithms" class="nav-link">Algorithms</a>
+        <a href="#simulator" class="nav-link nav-highlight">★ Simulator</a>
+        <a href="#sensing-range" class="nav-link">Sensing Range</a>
+        <a href="#operating-cycle" class="nav-link">Operating Cycle</a>
+        <a href="#comparison" class="nav-link">Comparison</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#simulator" class="btn-primary btn-sm">
+          <span>Live Demo</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Scroll Container -->
+  <main class="main-content">
+
+    <!-- SECTION 1 — HERO SECTION -->
+    <section class="section hero-section" id="hero">
+      <div class="section-container hero-grid">
+        <div class="hero-text-block">
+          <div class="subject-badge">
+            <span class="pulse-dot"></span>
+            <span>SUBJECT: Mind Mapping</span>
+          </div>
+
+          <h1 class="hero-title">
+            IoT Based Traffic <br>
+            <span class="cyan-gradient-text">Management System</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Dynamic Congestion Analysis & Intelligent Traffic Control via Edge IoT Processing using Max-Pressure Control Logic.
+          </p>
+
+          <!-- Group Members Card -->
+          <div class="team-card">
+            <div class="team-card-header">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#26D0E8" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <span>GROUP MEMBERS & ENROLLMENT NUMBERS</span>
+            </div>
+            <div class="team-members-grid">
+              <div class="member-item">
+                <span class="member-name">Jay Davera</span>
+                <span class="member-id">2510370015</span>
+              </div>
+              <div class="member-item">
+                <span class="member-name">Ruchit Karnavat</span>
+                <span class="member-id">2510370033</span>
+              </div>
+              <div class="member-item">
+                <span class="member-name">Rushirajsinh Vala</span>
+                <span class="member-id">2510370077</span>
+              </div>
+              <div class="member-item">
+                <span class="member-name">Prayag Shah</span>
+                <span class="member-id">2510370116</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-cta-group">
+            <a href="#simulator" class="btn-primary btn-lg">
+              <span>Explore Live Simulator Demo</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </a>
+            <a href="#algorithms" class="btn-secondary btn-lg">
+              <span>View Algorithms & Math</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual-block">
+          <div class="hero-image-frame">
+            <img src="images/smart_city_night_3d_1785949277726.jpg" alt="Smart City IoT Intersection Visual" class="hero-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="hero-img-fallback" style="display:none; width: 100%; height: 320px; background: linear-gradient(135deg, #0f172a, #1e293b); border-radius: 12px; align-items: center; justify-content: center; flex-direction: column; color: #26D0E8;">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="2" width="12" height="20" rx="6"/><circle cx="12" cy="6" r="2" fill="#EF4444"/><circle cx="12" cy="12" r="2" fill="#F59E0B"/><circle cx="12" cy="18" r="2" fill="#10B981"/></svg>
+              <span style="margin-top: 12px; font-family: 'Space Grotesk', sans-serif; font-weight: 700;">Smart City IoT Intersection</span>
+            </div>
+            <div class="hero-overlay-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#26D0E8" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <span>Max-Pressure Edge Controller Active</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 — PROBLEM STATEMENT -->
+    <section class="section problem-section" id="problems">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">PROBLEM ANALYSIS</span>
+          <h2 class="section-title">5 Key Problems Identified in Traditional Traffic Systems</h2>
+          <p class="section-desc">Click any problem card below to reveal the detailed Aim, Gap, Advantage, and Disadvantage analysis.</p>
+        </div>
+
+        <div class="problems-grid" id="problems-grid">
+          <!-- Problem 1 -->
+          <div class="problem-card active" data-problem="1">
+            <div class="card-num">01</div>
+            <h3 class="problem-card-title">Fixed-Timing Traffic Signals</h3>
+            <p class="problem-card-brief">Traditional traffic signals run on a fixed green/red duration regardless of actual vehicle count on the road.</p>
+            <div class="card-expand-badge">Click to Expand Analysis ↓</div>
+          </div>
+
+          <!-- Problem 2 -->
+          <div class="problem-card" data-problem="2">
+            <div class="card-num">02</div>
+            <h3 class="problem-card-title">Dependence on Manual Police</h3>
+            <p class="problem-card-brief">In most cities, traffic police are stationed at intersections even where traffic lights exist.</p>
+            <div class="card-expand-badge">Click to Expand Analysis ↓</div>
+          </div>
+
+          <!-- Problem 3 -->
+          <div class="problem-card" data-problem="3">
+            <div class="card-num">03</div>
+            <h3 class="problem-card-title">Non-Smart Decision-Making</h3>
+            <p class="problem-card-brief">Current systems don't use data-driven logic; traffic light timing is pre-set and doesn't adapt.</p>
+            <div class="card-expand-badge">Click to Expand Analysis ↓</div>
+          </div>
+
+          <!-- Problem 4 -->
+          <div class="problem-card" data-problem="4">
+            <div class="card-num">04</div>
+            <h3 class="problem-card-title">Urban Infrastructure Pressure</h3>
+            <p class="problem-card-brief">Rapid urban population growth strains transport systems faster than roads can physically expand.</p>
+            <div class="card-expand-badge">Click to Expand Analysis ↓</div>
+          </div>
+
+          <!-- Problem 5 -->
+          <div class="problem-card" data-problem="5">
+            <div class="card-num">05</div>
+            <h3 class="problem-card-title">Lack of Real-Time Data</h3>
+            <p class="problem-card-brief">Traditional signals generate no usable data trail, leaving authorities without historical traffic insights.</p>
+            <div class="card-expand-badge">Click to Expand Analysis ↓</div>
+          </div>
+        </div>
+
+        <!-- Detailed Problem Drawer / Panel -->
+        <div class="problem-detail-panel" id="problem-detail-panel">
+          <div class="detail-header">
+            <div class="detail-badge" id="detail-badge">PROBLEM 01 DETAILED BREAKDOWN</div>
+            <h3 class="detail-title" id="detail-title">Problem 1: Fixed-Timing Traffic Signals</h3>
+          </div>
+
+          <div class="detail-grid">
+            <div class="detail-box box-intro">
+              <span class="box-label">INTRODUCTION</span>
+              <p id="detail-intro">Traditional traffic signals run on a fixed green/red duration regardless of actual vehicle count on the road.</p>
+            </div>
+            <div class="detail-box box-aim">
+              <span class="box-label">PROJECT AIM</span>
+              <p id="detail-aim">To dynamically adjust green/red light duration based on real-time number of vehicles present at an intersection.</p>
+            </div>
+            <div class="detail-box box-gap">
+              <span class="box-label">GAP IN EXISTING SYSTEM</span>
+              <p id="detail-gap">Existing systems flash the same stretch of green/red at all times, with no responsiveness to actual congestion levels.</p>
+            </div>
+            <div class="detail-box box-advantage">
+              <span class="box-label">ADVANTAGE OF PROPOSED SYSTEM</span>
+              <p id="detail-adv">Reduces unnecessary idle time at signals, improves traffic flow, lowers commute cost and environmental pollution.</p>
+            </div>
+            <div class="detail-box box-disadvantage">
+              <span class="box-label">LIMITATION / DISADVANTAGE</span>
+              <p id="detail-dis">Requires continuous camera monitoring and processing hardware (Raspberry Pi), adding hardware dependency.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 — SYSTEM ARCHITECTURE -->
+    <section class="section arch-section" id="architecture">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">SYSTEM DESIGN & FLOWCHART</span>
+          <h2 class="section-title">Proposed Edge IoT System Architecture</h2>
+          <p class="section-desc">Interactive 4-layer telemetry and control pipeline. Click any node to inspect subsystem specifications.</p>
+        </div>
+
+        <!-- Animated Data Flow Pipeline -->
+        <div class="arch-pipeline-card">
+          <div class="pipeline-flow">
+            <!-- Node 1: Camera -->
+            <div class="arch-node" data-node="camera">
+              <div class="node-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#26D0E8" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+              </div>
+              <div class="node-info">
+                <span class="node-layer">SENSING LAYER</span>
+                <h4 class="node-name">Camera Feed</h4>
+                <span class="node-sub">Live Video Stream</span>
+              </div>
+            </div>
+
+            <!-- Connector 1 -->
+            <div class="connector-line">
+              <div class="pulse-particle"></div>
+            </div>
+
+            <!-- Node 2: Raspberry Pi -->
+            <div class="arch-node" data-node="pi">
+              <div class="node-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#26D0E8" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg>
+              </div>
+              <div class="node-info">
+                <span class="node-layer">EDGE COMPUTATION</span>
+                <h4 class="node-name">Raspberry Pi</h4>
+                <span class="node-sub">Image Proc & Pressure</span>
+              </div>
+            </div>
+
+            <!-- Connector 2 -->
+            <div class="connector-line">
+              <div class="pulse-particle"></div>
+            </div>
+
+            <!-- Node 3: Firebase -->
+            <div class="arch-node" data-node="firebase">
+              <div class="node-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#26D0E8" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+              </div>
+              <div class="node-info">
+                <span class="node-layer">CLOUD TELEMETRY</span>
+                <h4 class="node-name">Firebase DB</h4>
+                <span class="node-sub">1-Min Log Sync</span>
+              </div>
+            </div>
+
+            <!-- Connector 3 -->
+            <div class="connector-line">
+              <div class="pulse-particle"></div>
+            </div>
+
+            <!-- Node 4: NodeMCU -->
+            <div class="arch-node" data-node="nodemcu">
+              <div class="node-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#26D0E8" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+              </div>
+              <div class="node-info">
+                <span class="node-layer">SIGNAL ACTUATION</span>
+                <h4 class="node-name">Node MCU (ESP8266)</h4>
+                <span class="node-sub">Wireless UDP Receiver</span>
+              </div>
+            </div>
+
+            <!-- Connector 4 -->
+            <div class="connector-line">
+              <div class="pulse-particle"></div>
+            </div>
+
+            <!-- Node 5: Traffic Light -->
+            <div class="arch-node" data-node="led">
+              <div class="node-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
+              </div>
+              <div class="node-info">
+                <span class="node-layer">HARDWARE ACTUATOR</span>
+                <h4 class="node-name">Traffic Lights</h4>
+                <span class="node-sub">LED Signals (G/Y/R)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Node Modal Specs Display -->
+        <div class="subsystem-spec-grid">
+          <div class="spec-card">
+            <h4>1. Sensing Layer</h4>
+            <p>High-definition camera mounted at height H = 5.5m–6.0m recording live approach lanes to detect vehicles.</p>
+          </div>
+          <div class="spec-card">
+            <h4>2. Edge Computation Layer</h4>
+            <p>Raspberry Pi executing grayscale conversion, binarization thresholding, vehicle extraction, and Max-Pressure formula.</p>
+          </div>
+          <div class="spec-card">
+            <h4>3. Cloud Telemetry Layer</h4>
+            <p>Firebase Realtime Database storing historical traffic counts and pressure metrics every 1 minute for city planning.</p>
+          </div>
+          <div class="spec-card">
+            <h4>4. Signal Actuation Layer</h4>
+            <p>ESP8266 NodeMCU microcontrollers receiving UDP telemetry packets to actuate physical Red/Yellow/Green LEDs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4 — ALGORITHM COMPARISON -->
+    <section class="section algo-section" id="algorithms">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">ALGORITHM SELECTION</span>
+          <h2 class="section-title">Signal-Timing Algorithms Compared</h2>
+          <p class="section-desc">Evaluated control models for real-time intersection management. Max-Pressure Control was finalized for our system.</p>
+        </div>
+
+        <!-- Algorithm Tabs -->
+        <div class="algo-tabs">
+          <button class="algo-tab" data-algo="webster">Webster's Formula</button>
+          <button class="algo-tab" data-algo="fuzzy">Fuzzy Logic</button>
+          <button class="algo-tab" data-algo="rl">Q-Learning (RL)</button>
+          <button class="algo-tab active algo-tab-selected" data-algo="maxpressure">
+            <span>Max-Pressure Control</span>
+            <span class="badge-selected">SELECTED ✓</span>
+          </button>
+        </div>
+
+        <!-- Tab Contents -->
+        <div class="algo-content-card" id="algo-content-card">
+          <div class="algo-header">
+            <div>
+              <span class="algo-tag" id="algo-tag">ALGORITHM 04 | DECENTRALIZED CONTROL</span>
+              <h3 class="algo-name" id="algo-name">Max-Pressure Control Algorithm</h3>
+            </div>
+            <div class="algo-badge-box" id="algo-badge-box">
+              <span class="selected-pill">★ Final Chosen System Algorithm</span>
+            </div>
+          </div>
+
+          <div class="algo-body-grid">
+            <div class="algo-logic-block">
+              <h4 class="block-label">STEP-BY-STEP CONTROL LOGIC</h4>
+              <ol class="logic-steps-list" id="logic-steps-list">
+                <li><strong>Check all roads:</strong> System inspects how many vehicles are waiting on each approach lane.</li>
+                <li><strong>Check vehicles trying to leave:</strong> Checks downstream road capacity and departure rates.</li>
+                <li><strong>Calculate "Pressure":</strong> Computes $P = \frac{\text{Vehicles Waiting}}{\text{Distance Monitored}}$ for each direction.</li>
+                <li><strong>Find highest pressure:</strong> The road with the biggest traffic buildup gets highest priority.</li>
+                <li><strong>Give green light:</strong> Allocates green light to the direction with maximum computed pressure.</li>
+                <li><strong>Repeat continuously:</strong> Re-evaluates continuously every 3 seconds for adaptive control.</li>
+              </ol>
+            </div>
+
+            <div class="algo-code-block">
+              <h4 class="block-label">PYTHON IMPLEMENTATION SNIPPET</h4>
+              <pre class="code-terminal"><code id="algo-code-snippet">def calculate_max_pressure(road1_cars, road1_dist, road2_cars, road2_dist):
+    p1 = road1_cars / road1_dist
+    p2 = road2_cars / road2_dist
+    
+    if p1 > p2:
+        return "ROAD 1 -> GREEN", p1, p2
+    elif p2 > p1:
+        return "ROAD 2 -> GREEN", p1, p2
+    else:
+        return "EQUAL PRESSURE -> NORMAL CYCLE", p1, p2</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="comparison-table-card">
+          <h4 class="table-card-title">Algorithm Comparison Matrix</h4>
+          <div class="table-responsive">
+            <table class="matrix-table">
+              <thead>
+                <tr>
+                  <th>Algorithm</th>
+                  <th>Core Logic</th>
+                  <th>Data Needed</th>
+                  <th>Best Fit For This System</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-bold">Webster's Formula</td>
+                  <td>Calculates optimal total cycle length based on flow ratio</td>
+                  <td>Traffic flow & road capacity</td>
+                  <td>Simple and easy to implement</td>
+                </tr>
+                <tr>
+                  <td class="font-bold">Fuzzy Logic Controller</td>
+                  <td>Rules-based fuzzy sets (Low/Med/High density & wait)</td>
+                  <td>Vehicle count & waiting time</td>
+                  <td>Works well with uncertain/noisy data</td>
+                </tr>
+                <tr>
+                  <td class="font-bold">Reinforcement Learning</td>
+                  <td>Learns green timing policy via Q-value reward feedback</td>
+                  <td>Traffic data & past experience</td>
+                  <td>Improves automatically over time</td>
+                </tr>
+                <tr class="highlight-row">
+                  <td class="font-bold cyan-text">Max-Pressure Control ★</td>
+                  <td>Gives priority to road with highest vehicle density/pressure</td>
+                  <td>Real-time vehicle count & distance</td>
+                  <td class="green-text font-bold">Fast response to changing traffic (Selected ✓)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5 — ⭐ INTERACTIVE MAX-PRESSURE SIMULATOR (CENTERPIECE) -->
+    <section class="section simulator-section" id="simulator">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag section-tag-gold">★ LIVE INTERACTIVE DEMO</span>
+          <h2 class="section-title">Max-Pressure Control Simulator</h2>
+          <p class="section-desc">Move the sliders or click a test preset to observe live density normalization ($P = \frac{\text{Vehicles}}{\text{Distance}}$) and dynamic signal switching.</p>
+        </div>
+
+        <!-- Simulator Container -->
+        <div class="sim-wrapper">
+          <!-- Presets Bar -->
+          <div class="sim-presets-bar">
+            <span class="presets-label">DEMO PRESETS (DECK SCENARIOS):</span>
+            <button class="btn-preset active" id="preset-1">
+              <span>Preset 1: Distance Varies</span>
+              <small>(50 Cars @ 100m vs 500m)</small>
+            </button>
+            <button class="btn-preset" id="preset-2">
+              <span>Preset 2: Count Varies</span>
+              <small>(100 Cars vs 50 Cars @ 100m)</small>
+            </button>
+            <button class="btn-preset" id="preset-3">
+              <span>Preset 3: Equal (Tie)</span>
+              <small>(50 Cars @ 50m both)</small>
+            </button>
+          </div>
+
+          <!-- Supabase Historical Telemetry & Analytics Dashboard -->
+          <div class="hist-analytics-card">
+            <div class="hist-card-header">
+              <div class="hist-title-group">
+                <span class="hist-badge">SUPABASE TELEMETRY ENGINE</span>
+                <h3 class="hist-title">Past Records & Adaptive Historical Signal Control</h3>
+                <p class="hist-subtitle">Signal decisions leverage past records from Supabase to prevent erratic signal flipping and dynamically size green clearance phases based on recorded queue trends.</p>
+              </div>
+              <div class="hist-header-actions">
+                <button class="btn-secondary btn-sm" id="btn-refresh-history">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                  <span>Refresh DB Records</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Decision Mode Switcher -->
+            <div class="hist-controls-bar">
+              <div class="hist-modes-group">
+                <span class="control-label">DECISION ALGORITHM MODE:</span>
+                <div class="mode-buttons-row">
+                  <button class="btn-mode active" id="mode-hybrid" data-mode="hybrid">
+                    <span>★ Hybrid Adaptive Mode</span>
+                    <small>(Live Sensor + Past DB Records)</small>
+                  </button>
+                  <button class="btn-mode" id="mode-pure-hist" data-mode="pure-hist">
+                    <span>Pure Historical DB</span>
+                    <small>(100% Past Records Skew)</small>
+                  </button>
+                  <button class="btn-mode" id="mode-live-only" data-mode="live-only">
+                    <span>Instant Live Only</span>
+                    <small>(Raw Instant Pressure)</small>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Weight Slider -->
+              <div class="hist-weight-control" id="hist-weight-container">
+                <div class="slider-label-row">
+                  <label>Historical Influence vs Live Sensor:</label>
+                  <span class="slider-val" id="hist-weight-val">50% Past / 50% Live</span>
+                </div>
+                <input type="range" id="hist-weight-slider" min="0" max="100" value="50" class="sim-slider">
+              </div>
+            </div>
+
+            <!-- Historical Metrics Grid -->
+            <div class="hist-metrics-grid">
+              <div class="hist-metric-item">
+                <span class="metric-label">DATABASE ENTRIES</span>
+                <strong class="metric-val" id="hist-total-records">Loading...</strong>
+                <span class="metric-sub" id="hist-db-status">Connecting to Supabase...</span>
+              </div>
+              <div class="hist-metric-item">
+                <span class="metric-label">ROAD 1 HISTORICAL AVG</span>
+                <strong class="metric-val cyan-text" id="hist-r1-avg">-- veh/m</strong>
+                <span class="metric-sub" id="hist-r1-cars">-- cars avg</span>
+              </div>
+              <div class="hist-metric-item">
+                <span class="metric-label">ROAD 2 HISTORICAL AVG</span>
+                <strong class="metric-val" id="hist-r2-avg">-- veh/m</strong>
+                <span class="metric-sub" id="hist-r2-cars">-- cars avg</span>
+              </div>
+              <div class="hist-metric-item highlight-metric">
+                <span class="metric-label">ADAPTIVE GREEN TIME SPLIT</span>
+                <strong class="metric-val green-text" id="hist-green-split">R1: --s | R2: --s</strong>
+                <span class="metric-sub" id="hist-skew-ratio">Based on past density</span>
+              </div>
+            </div>
+
+            <!-- Recent Records Preview -->
+            <div class="hist-records-drawer">
+              <div class="drawer-header" id="toggle-records-drawer">
+                <div class="drawer-title-row">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#26D0E8" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                  <span>Recent Supabase Database Records (Last 5 Entries)</span>
+                </div>
+                <span class="drawer-icon" id="drawer-toggle-icon">▼</span>
+              </div>
+              <div class="drawer-body" id="records-drawer-body">
+                <div class="table-responsive">
+                  <table class="recent-records-table">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Timestamp</th>
+                        <th>Road 1 (Cars / Dist / Pressure)</th>
+                        <th>Road 2 (Cars / Dist / Pressure)</th>
+                        <th>Assigned Signal</th>
+                      </tr>
+                    </thead>
+                    <tbody id="recent-records-tbody">
+                      <tr><td colspan="5" style="text-align: center; color: var(--text-muted); padding: 1rem;">Loading past records from Supabase...</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Emergency Vehicle Priority Preemption (EV Wave Override) Card -->
+          <div class="ev-preemption-card" id="ev-preemption-card">
+            <div class="ev-card-header">
+              <div class="ev-title-group">
+                <div class="ev-badge-row">
+                  <span class="ev-badge">🚨 EMERGENCY PREEMPTION PROTOCOL (EV-WAVE)</span>
+                  <span class="ev-latency-pill">Edge Detection: <strong id="ev-latency-val">28.4ms</strong></span>
+                  <span class="ev-v2x-pill">DSRC / RFID 5.8 GHz Active</span>
+                </div>
+                <h3 class="ev-title">Emergency Vehicle Priority Corridor Override</h3>
+                <p class="ev-subtitle">Simulate real-world RFID/DSRC V2X priority detection for approaching emergency responders (Ambulances & Fire Rescue). When dispatched, the edge controller instantly suspends standard Max-Pressure cycles, executes safety amber/all-red clearance phases, forces a continuous green wave corridor, and logs priority telemetry into Supabase.</p>
+              </div>
+              <div class="ev-header-actions">
+                <button class="btn-siren-toggle" id="btn-siren-toggle" title="Toggle audio siren sound effect" type="button">
+                  <span id="siren-icon">🔊</span>
+                  <span id="siren-status-text">Siren Sound: ON</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Preemption Action Triggers -->
+            <div class="ev-controls-row">
+              <div class="ev-trigger-buttons">
+                <button class="btn-ev-trigger btn-ev-amb" id="btn-ev-road1" type="button">
+                  <span class="ev-btn-icon">🚑</span>
+                  <div class="ev-btn-text">
+                    <strong>Dispatch Ambulance (Road 1)</strong>
+                    <small>Type-1 ALS Unit | RFID: AMB-911-R1</small>
+                  </div>
+                </button>
+
+                <button class="btn-ev-trigger btn-ev-fire" id="btn-ev-road2" type="button">
+                  <span class="ev-btn-icon">🚒</span>
+                  <div class="ev-btn-text">
+                    <strong>Dispatch Fire Rescue (Road 2)</strong>
+                    <small>Ladder Co. 33 | DSRC: FIRE-33-R2</small>
+                  </div>
+                </button>
+
+                <button class="btn-ev-trigger btn-ev-dual" id="btn-ev-dual" type="button" title="Simulate simultaneous emergency vehicle arrival on Road 1 and Road 2">
+                  <span class="ev-btn-icon">⚡</span>
+                  <div class="ev-btn-text">
+                    <strong>Dual EV Conflict (R1 + R2)</strong>
+                    <small>Simultaneous Contention | Two-Stage Corridor</small>
+                  </div>
+                </button>
+
+                <button class="btn-ev-cancel" id="btn-ev-cancel" type="button" disabled>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                  <span>Cancel Preemption (Resume Normal)</span>
+                </button>
+              </div>
+
+              <!-- Dynamic Clearance Readout Badge -->
+              <div class="ev-duration-selector" style="display:none;">
+                <select id="ev-duration-select" class="ev-select">
+                  <option value="10">10 Seconds Clearance</option>
+                  <option value="15" selected>15 Seconds Clearance</option>
+                  <option value="20">20 Seconds Clearance</option>
+                </select>
+              </div>
+              <div class="ev-dynamic-window-badge">
+                <span class="window-badge-label">SIGNAL CLEARANCE RULE:</span>
+                <strong class="window-badge-val" id="ev-window-rule-val">Clear 80m (70m EV + 10m buffer) → Cut to RED</strong>
+              </div>
+            </div>
+
+            <!-- Distance-Gated Clearance Configuration (Sir's Tail-Truncation Protocol - Dual Vehicle Distance Controls) -->
+            <div class="ev-distance-control-card" id="ev-distance-control-card">
+              <div class="ev-distance-header">
+                <div class="ev-dist-title-group">
+                  <span class="ev-dist-badge">DISTANCE-GATED QUEUE CLEARANCE PROTOCOL</span>
+                  <h4 class="ev-dist-heading">Ambulance &amp; Fire Brigade Distance &amp; Tail-Truncation Settings</h4>
+                  <p class="ev-dist-desc">
+                    Green signal is granted <strong>strictly for the queue ahead of the emergency vehicle + 10m safety buffer</strong>. The whole road's traffic is <em>not</em> emptied at a time; remaining traffic is immediately stopped at <strong>RED</strong> once the vehicle passes.
+                  </p>
+                </div>
+                <div class="ev-dist-readout-pill">
+                  <span class="pill-title">Target Clearance Envelopes:</span>
+                  <strong class="pill-value" id="ev-target-clearance-text">R1 (Amb): 80m | R2 (Fire): 100m</strong>
+                </div>
+              </div>
+
+              <!-- Two Separate Distance Sliders: Road 1 (Ambulance) & Road 2 (Fire Brigade) -->
+              <div class="ev-dual-sliders-wrapper">
+                <!-- Slider 1: Road 1 Ambulance -->
+                <div class="ev-dist-slider-container ev-slider-r1">
+                  <div class="slider-label-row">
+                    <label for="ev-dist-r1-slider">
+                      <div class="ev-veh-label-badge badge-amb">🚑 ROAD 1: AMBULANCE</div>
+                      <strong>Vary Ambulance Distance from Stop Line:</strong>
+                    </label>
+                    <span class="slider-val cyan-text" id="ev-dist-r1-val">70 m</span>
+                  </div>
+                  <input type="range" id="ev-dist-r1-slider" min="20" max="250" value="70" step="5" class="sim-slider">
+                  <div class="slider-subtext-row">
+                    <span>Clearance Target: <strong id="r1-clear-subtext" class="cyan-text">80 m (70m + 10m buffer)</strong></span>
+                    <span id="r1-green-subtext" class="gold-text">Green: ~14.3s</span>
+                  </div>
+                </div>
+
+                <!-- Slider 2: Road 2 Fire Brigade -->
+                <div class="ev-dist-slider-container ev-slider-r2">
+                  <div class="slider-label-row">
+                    <label for="ev-dist-r2-slider">
+                      <div class="ev-veh-label-badge badge-fire">🚒 ROAD 2: FIRE BRIGADE</div>
+                      <strong>Vary Fire Brigade Distance from Stop Line:</strong>
+                    </label>
+                    <span class="slider-val gold-text" id="ev-dist-r2-val">90 m</span>
+                  </div>
+                  <input type="range" id="ev-dist-r2-slider" min="20" max="250" value="90" step="5" class="sim-slider">
+                  <div class="slider-subtext-row">
+                    <span>Clearance Target: <strong id="r2-clear-subtext" class="gold-text">100 m (90m + 10m buffer)</strong></span>
+                    <span id="r2-green-subtext" class="gold-text">Green: ~17.4s</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Live Kinematics Breakdown Grid -->
+              <div class="ev-kinematics-grid">
+                <div class="kinematics-item r1-card">
+                  <span class="k-label">🚑 ROAD 1 AMBULANCE</span>
+                  <strong class="k-val cyan-text" id="k-r1-dist">70 m</strong>
+                  <span class="k-sub" id="k-r1-cleared">Cleared: 80 m (~40 cars)</span>
+                  <span class="k-sub gold-text" id="k-r1-green">Green: 14.3 s</span>
+                </div>
+                <div class="kinematics-item r2-card">
+                  <span class="k-label">🚒 ROAD 2 FIRE BRIGADE</span>
+                  <strong class="k-val gold-text" id="k-r2-dist">90 m</strong>
+                  <span class="k-sub" id="k-r2-cleared">Cleared: 100 m (~10 cars)</span>
+                  <span class="k-sub gold-text" id="k-r2-green">Green: 17.4 s</span>
+                </div>
+                <div class="kinematics-item">
+                  <span class="k-label">SAFETY TAIL BUFFER</span>
+                  <strong class="k-val cyan-text">+10 m</strong>
+                  <span class="k-sub">Tail clearance buffer (+10m)</span>
+                </div>
+                <div class="kinematics-item">
+                  <span class="k-label">ROAD 1 HELD AT RED</span>
+                  <strong class="k-val red-text" id="k-r1-held">20 m (10 cars)</strong>
+                  <span class="k-sub">Whole road NOT emptied</span>
+                </div>
+                <div class="kinematics-item">
+                  <span class="k-label">ROAD 2 HELD AT RED</span>
+                  <strong class="k-val red-text" id="k-r2-held">410 m (41 cars)</strong>
+                  <span class="k-sub">Whole road NOT emptied</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Active Emergency Status Monitor -->
+            <div class="ev-status-monitor" id="ev-status-monitor">
+              <div class="ev-monitor-header">
+                <div class="ev-status-badge-wrapper">
+                  <span class="ev-live-dot" id="ev-live-dot"></span>
+                  <span class="ev-status-phase-text" id="ev-status-phase-text">STATUS: STANDBY — SENSING STANDARD APPROACH TRAFFIC</span>
+                </div>
+                <div class="ev-countdown-badge" id="ev-countdown-badge" style="display:none;">
+                  <span>Corridor Closes In:</span>
+                  <strong id="ev-countdown-val">15.0s</strong>
+                </div>
+              </div>
+
+              <!-- Animated Corridor Vehicle Runway with Distance-Gated Buffer Envelope -->
+              <div class="ev-corridor-runway" id="ev-corridor-runway" style="display:none;">
+                <div class="runway-road runway-r1" id="runway-road-r1">
+                  <div class="runway-meta">
+                    <span class="runway-label">ROAD 1 APPROACH</span>
+                    <span class="runway-envelope-tag" id="runway-env-tag-r1">Clearance Target: 80m (70m EV + 10m buffer)</span>
+                    <span class="runway-tag" id="runway-tag-r1">STANDBY</span>
+                  </div>
+                  <div class="runway-track" id="runway-track-r1">
+                    <div class="runway-held-zone" id="runway-held-zone-r1" title="Remaining road traffic held at RED (Whole road not emptied)">
+                      <span class="held-zone-text">🛑 TRAFFIC HELD AT RED</span>
+                    </div>
+                    <div class="runway-cleared-zone" id="runway-cleared-zone-r1" title="Active Green Clearance Envelope (DEV + 10m)">
+                      <span class="cleared-zone-text">🟢 GREEN PACKET (<span id="clear-dist-val-r1">80m</span>)</span>
+                    </div>
+                    <div class="runway-cutoff-line" id="runway-cutoff-r1" title="Safety Tail Buffer Cutoff (+10m)">
+                      <span class="cutoff-flag">+10m CUTOFF</span>
+                    </div>
+                    <div class="runway-vehicle" id="runway-veh-r1">
+                      <span class="veh-icon">🚑</span>
+                      <span class="veh-code">AMB-911</span>
+                      <span class="veh-dist-tag" id="veh-dist-tag-r1">@ 70m</span>
+                    </div>
+                    <div class="runway-stopline">
+                      <span class="stopline-label">STOP LINE</span>
+                    </div>
+                    <div class="runway-junction">INTERSECTION CLEARANCE ZONE</div>
+                  </div>
+                  <div class="runway-footer-status" id="runway-footer-r1">
+                    <span class="rf-cleared">Cleared on Green: <strong id="rf-cleared-r1">80m (~40 cars)</strong></span>
+                    <span class="rf-held">Held at Red: <strong id="rf-held-r1">20m (10 cars)</strong></span>
+                  </div>
+                </div>
+
+                <div class="runway-road runway-r2" id="runway-road-r2">
+                  <div class="runway-meta">
+                    <span class="runway-label">ROAD 2 APPROACH</span>
+                    <span class="runway-envelope-tag" id="runway-env-tag-r2">Clearance Target: 80m (70m EV + 10m buffer)</span>
+                    <span class="runway-tag" id="runway-tag-r2">STANDBY</span>
+                  </div>
+                  <div class="runway-track" id="runway-track-r2">
+                    <div class="runway-held-zone" id="runway-held-zone-r2" title="Remaining road traffic held at RED (Whole road not emptied)">
+                      <span class="held-zone-text">🛑 TRAFFIC HELD AT RED</span>
+                    </div>
+                    <div class="runway-cleared-zone" id="runway-cleared-zone-r2" title="Active Green Clearance Envelope (DEV + 10m)">
+                      <span class="cleared-zone-text">🟢 GREEN PACKET (<span id="clear-dist-val-r2">80m</span>)</span>
+                    </div>
+                    <div class="runway-cutoff-line" id="runway-cutoff-r2" title="Safety Tail Buffer Cutoff (+10m)">
+                      <span class="cutoff-flag">+10m CUTOFF</span>
+                    </div>
+                    <div class="runway-vehicle" id="runway-veh-r2">
+                      <span class="veh-icon">🚒</span>
+                      <span class="veh-code">FIRE-33</span>
+                      <span class="veh-dist-tag" id="veh-dist-tag-r2">@ 70m</span>
+                    </div>
+                    <div class="runway-stopline">
+                      <span class="stopline-label">STOP LINE</span>
+                    </div>
+                    <div class="runway-junction">INTERSECTION CLEARANCE ZONE</div>
+                  </div>
+                  <div class="runway-footer-status" id="runway-footer-r2">
+                    <span class="rf-cleared">Cleared on Green: <strong id="rf-cleared-r2">80m (~8 cars)</strong></span>
+                    <span class="rf-held">Held at Red: <strong id="rf-held-r2">420m (42 cars)</strong></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Progress bar for clearance countdown -->
+              <div class="ev-progress-bar-container" id="ev-progress-container" style="display:none;">
+                <div class="ev-progress-bar" id="ev-progress-bar" style="width: 100%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sim-main-grid">
+            <!-- Inputs Panel -->
+            <div class="sim-inputs-card">
+              <h3 class="sim-card-title">Approach Lane Inputs</h3>
+
+              <!-- Road 1 Controls -->
+              <div class="road-input-group road-1-group">
+                <div class="group-header">
+                  <span class="road-badge road-1-badge">ROAD 1 (APPROACH A)</span>
+                  <span class="pressure-output-pill" id="r1-pressure-display">P1 = 0.50 veh/m</span>
+                </div>
+
+                <div class="slider-control">
+                  <div class="slider-label-row">
+                    <label>Vehicle Count (Cars):</label>
+                    <span class="slider-val" id="r1-cars-val">50 cars</span>
+                  </div>
+                  <input type="range" id="r1-cars-slider" min="1" max="150" value="50" class="sim-slider">
+                </div>
+
+                <div class="slider-control">
+                  <div class="slider-label-row">
+                    <label>Average Distance Monitored:</label>
+                    <span class="slider-val" id="r1-dist-val">100 m</span>
+                  </div>
+                  <input type="range" id="r1-dist-slider" min="5" max="500" value="100" class="sim-slider">
+                </div>
+              </div>
+
+              <!-- Road 2 Controls -->
+              <div class="road-input-group road-2-group">
+                <div class="group-header">
+                  <span class="road-badge road-2-badge">ROAD 2 (APPROACH B)</span>
+                  <span class="pressure-output-pill" id="r2-pressure-display">P2 = 0.10 veh/m</span>
+                </div>
+
+                <div class="slider-control">
+                  <div class="slider-label-row">
+                    <label>Vehicle Count (Cars):</label>
+                    <span class="slider-val" id="r2-cars-val">50 cars</span>
+                  </div>
+                  <input type="range" id="r2-cars-slider" min="1" max="150" value="50" class="sim-slider">
+                </div>
+
+                <div class="slider-control">
+                  <div class="slider-label-row">
+                    <label>Average Distance Monitored:</label>
+                    <span class="slider-val" id="r2-dist-val">500 m</span>
+                  </div>
+                  <input type="range" id="r2-dist-slider" min="5" max="500" value="500" class="sim-slider">
+                </div>
+              </div>
+            </div>
+
+            <!-- Visualization & Decision Panel -->
+            <div class="sim-output-card">
+              <h3 class="sim-card-title">Live Signal Decision & Pressure Gauges</h3>
+
+              <!-- Emergency Active Alert Strip -->
+              <div class="ev-active-alert-strip" id="ev-active-alert-strip" style="display:none;">
+                <div class="ev-strip-beacon">🚨</div>
+                <div class="ev-strip-info">
+                  <strong id="ev-strip-title">CRITICAL EMERGENCY PREEMPTION ACTIVE</strong>
+                  <span id="ev-strip-desc">Approaching Priority Unit: AMBULANCE (Code 3) — Opposing lanes locked RED</span>
+                  <div id="ev-arbitration-pill" class="ev-arbitration-badge" style="display:none; margin-top: 4px;">⚡ ARBITRATION: STAGE 1 ACTIVE</div>
+                </div>
+                <div class="ev-strip-timer" id="ev-strip-timer">15.0s</div>
+              </div>
+
+              <!-- Dual Signal Light Graphics -->
+              <div class="signal-visualizer-row" id="signal-visualizer-row">
+                <!-- Road 1 Signal Box -->
+                <div class="traffic-light-box" id="r1-light-box">
+                  <div class="box-label">ROAD 1 SIGNAL</div>
+                  <div class="light-housing">
+                    <div class="light red-light" id="r1-red"></div>
+                    <div class="light yellow-light" id="r1-yellow"></div>
+                    <div class="light green-light active-green" id="r1-green"></div>
+                  </div>
+                  <div class="light-state-tag green-tag" id="r1-state-text">GREEN (PROCEED)</div>
+                </div>
+
+                <div class="vs-divider">VS</div>
+
+                <!-- Road 2 Signal Box -->
+                <div class="traffic-light-box" id="r2-light-box">
+                  <div class="box-label">ROAD 2 SIGNAL</div>
+                  <div class="light-housing">
+                    <div class="light red-light active-red" id="r2-red"></div>
+                    <div class="light yellow-light" id="r2-yellow"></div>
+                    <div class="light green-light" id="r2-green"></div>
+                  </div>
+                  <div class="light-state-tag red-tag" id="r2-state-text">RED (STOP)</div>
+                </div>
+              </div>
+
+              <!-- Adaptive Dynamic Green Duration Banner -->
+              <div class="adaptive-timing-banner" id="adaptive-timing-banner">
+                <div class="timing-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="timing-info">
+                  <span class="timing-label">HISTORICAL DYNAMIC ALLOCATION:</span>
+                  <span class="timing-val" id="adaptive-timing-desc">Road 1 allocated <strong>38s</strong> green based on historical density</span>
+                </div>
+              </div>
+
+              <!-- Live Pressure Comparison Bars -->
+              <div class="pressure-gauges-container">
+                <div class="gauge-bar-wrapper">
+                  <div class="gauge-meta">
+                    <span>Road 1 Pressure Density</span>
+                    <strong id="r1-gauge-num">0.50 veh/m</strong>
+                  </div>
+                  <div class="gauge-track">
+                    <div class="gauge-fill fill-cyan" id="r1-gauge-fill" style="width: 50%;"></div>
+                  </div>
+                </div>
+
+                <div class="gauge-bar-wrapper">
+                  <div class="gauge-meta">
+                    <span>Road 2 Pressure Density</span>
+                    <strong id="r2-gauge-num">0.10 veh/m</strong>
+                  </div>
+                  <div class="gauge-track">
+                    <div class="gauge-fill fill-red" id="r2-gauge-fill" style="width: 10%;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Terminal Code Output Box -->
+              <div class="sim-terminal-box">
+                <div class="terminal-header">
+                  <span class="term-dot red"></span>
+                  <span class="term-dot yellow"></span>
+                  <span class="term-dot green"></span>
+                  <span class="term-title">Sample Output of Code Terminal</span>
+                  <span id="supabase-sync-status" class="sync-status-badge">
+                    <span class="sync-dot"></span>
+                    <span class="sync-text">Supabase Ready</span>
+                  </span>
+                </div>
+                <pre class="terminal-content" id="terminal-log-output">
+---------- TRAFFIC ANALYSIS ----------
+Road 1:
+  Cars     : 50
+  Distance : 100.0 m
+  Pressure : 0.50 veh/m
+
+Road 2:
+  Cars     : 50
+  Distance : 500.0 m
+  Pressure : 0.10 veh/m
+
+---------- SIGNAL DECISION ----------
+ROAD 1  -> GREEN
+ROAD 2  -> RED
+                </pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6 — SENSING RANGE & DETECTION ENVELOPE -->
+    <section class="section sensing-section" id="sensing-range">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">SENSING & OPTICAL CONSTRAINTS</span>
+          <h2 class="section-title">Sensing Range & Detection Envelope</h2>
+          <p class="section-desc">Interactive optical schematic showing the camera's 30m detection boundary, blind zone, and vehicle occlusion mechanics.</p>
+        </div>
+
+        <div class="sensing-grid">
+          <!-- Interactive SVG Diagram -->
+          <div class="sensing-diagram-card">
+            <h3 class="card-subtitle">Top-Down Intersection Detection Geometry</h3>
+            
+            <div class="svg-diagram-wrapper">
+              <svg viewBox="0 0 800 400" class="sensing-svg">
+                <!-- Grid & Background -->
+                <rect width="800" height="400" fill="#0A0F1D" rx="12"/>
+                
+                <!-- Road Markings -->
+                <rect x="100" y="140" width="700" height="120" fill="#111827" stroke="#1E293B" stroke-width="2"/>
+                <line x1="100" y1="200" x2="800" y2="200" stroke="#334155" stroke-dasharray="10 10" stroke-width="2"/>
+                <line x1="180" y1="140" x2="180" y2="260" stroke="#EF4444" stroke-width="4"/>
+                <text x="180" y="130" fill="#EF4444" font-size="12" font-weight="700" text-anchor="middle">STOP LINE (0m)</text>
+
+                <!-- Camera Pole -->
+                <circle cx="120" cy="200" r="14" fill="#00E5C7" opacity="0.2"/>
+                <circle cx="120" cy="200" r="6" fill="#00E5C7"/>
+                <text x="120" y="235" fill="#00E5C7" font-size="11" font-weight="700" text-anchor="middle">Camera + Pi Pole (H=5.5m)</text>
+
+                <!-- Blind Zone (0m - 3m) -->
+                <polygon points="120,200 180,150 180,250" fill="#EF4444" opacity="0.25"/>
+                <line x1="120" y1="200" x2="180" y2="150" stroke="#EF4444" stroke-dasharray="4 4"/>
+                <line x1="120" y1="200" x2="180" y2="250" stroke="#EF4444" stroke-dasharray="4 4"/>
+                <text x="150" y="204" fill="#EF4444" font-size="11" font-weight="800" text-anchor="middle">BLIND ZONE (0-3m)</text>
+
+                <!-- Camera FOV Cone (3m - 30m) -->
+                <polygon points="180,150 600,100 600,300 180,250" fill="url(#cyan-cone)" opacity="0.2"/>
+                <line x1="120" y1="200" x2="600" y2="100" stroke="#00E5C7" stroke-width="1.5" stroke-dasharray="6 4"/>
+                <line x1="120" y1="200" x2="600" y2="300" stroke="#00E5C7" stroke-width="1.5" stroke-dasharray="6 4"/>
+
+                <!-- Max Range Boundary Line (30m) -->
+                <line x1="600" y1="80" x2="600" y2="320" stroke="#00E5C7" stroke-width="2" stroke-dasharray="8 6"/>
+                <text x="600" y="70" fill="#00E5C7" font-size="12" font-weight="800" text-anchor="middle">MAX OPERATING DISTANCE = 30m</text>
+
+                <!-- Vehicle 1: Small Car at 10m -->
+                <rect x="260" y="175" width="45" height="24" rx="4" fill="#10B981" stroke="#34D399" stroke-width="2"/>
+                <text x="282" y="191" fill="#FFFFFF" font-size="10" font-weight="700" text-anchor="middle">Car 1</text>
+                <text x="282" y="215" fill="#94A3B8" font-size="10" text-anchor="middle">@ 10m</text>
+
+                <!-- Vehicle 2: Bus/Truck at 18m -->
+                <rect x="380" y="170" width="75" height="32" rx="4" fill="#2563EB" stroke="#60A5FA" stroke-width="2"/>
+                <text x="417" y="190" fill="#FFFFFF" font-size="10" font-weight="700" text-anchor="middle">Bus / Truck</text>
+                <text x="417" y="215" fill="#94A3B8" font-size="10" text-anchor="middle">@ 18m (Height 3.2m)</text>
+
+                <!-- Occlusion Shadow Polygon -->
+                <polygon points="455,170 650,140 650,230 455,202" fill="#EF4444" opacity="0.3"/>
+                <text x="530" y="190" fill="#FCA5A5" font-size="10" font-weight="700" text-anchor="middle">Optical Occlusion Shadow</text>
+
+                <!-- Vehicle 3: Occluded Car at 25m -->
+                <rect x="500" y="175" width="40" height="22" rx="4" fill="#64748B" stroke="#EF4444" stroke-width="1.5" stroke-dasharray="3 3"/>
+                <text x="520" y="180" fill="#EF4444" font-size="9" font-weight="800" text-anchor="middle">HIDDEN</text>
+
+                <!-- Unusable Zone (>30m) -->
+                <rect x="600" y="140" width="200" height="120" fill="#1E293B" opacity="0.5"/>
+                <text x="700" y="195" fill="#64748B" font-size="11" font-weight="700" text-anchor="middle">UNUSABLE (>30m)</text>
+                <text x="700" y="212" fill="#64748B" font-size="9" text-anchor="middle">Pixel Budget &lt; 20px</text>
+
+                <!-- Gradients -->
+                <defs>
+                  <linearGradient id="cyan-cone" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#00E5C7" stop-opacity="0.4"/>
+                    <stop offset="100%" stop-color="#00E5C7" stop-opacity="0.05"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Explanation Cards Column -->
+          <div class="sensing-info-column">
+            <!-- Card 1 -->
+            <div class="sensing-card card-cyan">
+              <h4>MAXIMUM OPERATING DISTANCE: 30 METERS</h4>
+              <ul>
+                <li><strong>Realistic Operating Range:</strong> 15m to 30m per lane (Camera at H = 5.5m–6m).</li>
+                <li><strong>Lens FOV Limit:</strong> 60°–75° wide-angle lens captures full approach width up to 30m without radial distortion.</li>
+                <li><strong>Blind Zone:</strong> 0m to 3m directly beneath the pole is excluded to avoid steep downward perspective distortion.</li>
+              </ul>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="sensing-card card-green">
+              <h4>WHY RANGE EXISTS: RESOLUTION VS. PIXEL SIZE</h4>
+              <ul>
+                <li><strong>Vehicle Pixel Budget:</strong> At 720p resolution, vehicles beyond 30m shrink below 20×15 pixels.</li>
+                <li><strong>Binarization Failure:</strong> Sub-20px objects blend into road surface noise during grayscale thresholding.</li>
+                <li><strong>4–5 Vehicle Queue:</strong> 30m envelope accurately captures the critical waiting queue length.</li>
+              </ul>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="sensing-card card-red">
+              <h4>WHY RANGE EXISTS: VEHICLE OCCLUSION</h4>
+              <ul>
+                <li><strong>Line-of-Sight Blockage:</strong> Tall vehicles (buses/trucks at 10–18m) block smaller cars behind them.</li>
+                <li><strong>Perspective Shadow:</strong> Cars hidden inside the optical shadow are invisible to camera perspective beyond 30m.</li>
+                <li><strong>Reliable Density:</strong> Bounding detection to 30m prevents phantom shadows from corrupting density count.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7 — REAL-TIME OPERATING CYCLE -->
+    <section class="section cycle-section" id="operating-cycle">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">SYSTEM TIMING & CONTROL LOOP</span>
+          <h2 class="section-title">Real-Time Operating Cycle & Latency Breakdown</h2>
+          <p class="section-desc">Stage-by-stage execution latency for one complete closed-loop cycle. Total edge computation latency is ~128.3ms.</p>
+        </div>
+
+        <div class="cycle-grid">
+          <!-- Latency Pipeline Progress Bars -->
+          <div class="pipeline-card">
+            <div class="pipeline-card-header">
+              <h3>Edge Control Loop Execution Latency</h3>
+              <span class="total-latency-badge" id="total-latency-tag">Total: ~128.3 ms (&lt;0.15s)</span>
+            </div>
+
+            <div class="stages-list">
+              <!-- Stage 1 -->
+              <div class="stage-row">
+                <div class="stage-meta">
+                  <span class="stage-num">1</span>
+                  <span class="stage-name">Image Capture (Pi Camera)</span>
+                  <span class="stage-ms">33.3 ms</span>
+                </div>
+                <div class="stage-bar-track">
+                  <div class="stage-bar-fill" style="width: 74%;"></div>
+                </div>
+              </div>
+
+              <!-- Stage 2 -->
+              <div class="stage-row">
+                <div class="stage-meta">
+                  <span class="stage-num">2</span>
+                  <span class="stage-name">Grayscale & Binarization</span>
+                  <span class="stage-ms">30.0 ms</span>
+                </div>
+                <div class="stage-bar-track">
+                  <div class="stage-bar-fill" style="width: 66%;"></div>
+                </div>
+              </div>
+
+              <!-- Stage 3 -->
+              <div class="stage-row">
+                <div class="stage-meta">
+                  <span class="stage-num">3</span>
+                  <span class="stage-name">Vehicle Count Extraction</span>
+                  <span class="stage-ms">45.0 ms</span>
+                </div>
+                <div class="stage-bar-track">
+                  <div class="stage-bar-fill fill-green" style="width: 100%;"></div>
+                </div>
+              </div>
+
+              <!-- Stage 4 -->
+              <div class="stage-row">
+                <div class="stage-meta">
+                  <span class="stage-num">4</span>
+                  <span class="stage-name">Max-Pressure Calculation</span>
+                  <span class="stage-ms">5.0 ms</span>
+                </div>
+                <div class="stage-bar-track">
+                  <div class="stage-bar-fill" style="width: 11%;"></div>
+                </div>
+              </div>
+
+              <!-- Stage 5 -->
+              <div class="stage-row">
+                <div class="stage-meta">
+                  <span class="stage-num">5</span>
+                  <span class="stage-name">UDP Telemetry to NodeMCU</span>
+                  <span class="stage-ms">12.0 ms</span>
+                </div>
+                <div class="stage-bar-track">
+                  <div class="stage-bar-fill" style="width: 26%;"></div>
+                </div>
+              </div>
+
+              <!-- Stage 6 -->
+              <div class="stage-row">
+                <div class="stage-meta">
+                  <span class="stage-num">6</span>
+                  <span class="stage-name">NodeMCU LED Signal Switch</span>
+                  <span class="stage-ms">3.0 ms</span>
+                </div>
+                <div class="stage-bar-track">
+                  <div class="stage-bar-fill" style="width: 7%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pipeline-actions">
+              <button class="btn-primary btn-sm" id="btn-run-loop">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Simulate Execution Loop Sequence</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Interval & Guardrails Column -->
+          <div class="cycle-info-column">
+            <!-- Card 1 -->
+            <div class="cycle-card card-cyan">
+              <h4>TOTAL RECALCULATION INTERVAL: 3.0 SECONDS</h4>
+              <ul>
+                <li><strong>Refresh Frequency:</strong> Algorithm recalculates signal timing decisions every 3.0 seconds (2s–5s optimal range).</li>
+                <li><strong>Why 3.0s:</strong> Balances instant responsiveness while avoiding signal flicker or instability from over-reacting to 1-second gaps.</li>
+                <li><strong>Low CPU Duty Cycle:</strong> ~128ms calculation takes &lt;5% CPU utilization on Raspberry Pi.</li>
+              </ul>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="cycle-card card-red">
+              <h4>SAFETY GUARDRAILS & STABILITY RULES</h4>
+              <ul>
+                <li><strong>Minimum Green Time:</strong> Enforces 10s minimum green duration so signals do not flip erratically.</li>
+                <li><strong>Yellow Clearance:</strong> Enforces standard 3s amber transition for driver stopping safety.</li>
+                <li><strong>Background Cloud Sync:</strong> Firebase logging runs as asynchronously (every 1 min) without stalling the control loop.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8 — CURRENT VS PROPOSED COMPARISON -->
+    <section class="section comp-section" id="comparison">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">COMPARATIVE ANALYSIS</span>
+          <h2 class="section-title">Current System vs. Proposed IoT System</h2>
+          <p class="section-desc">Side-by-side comparison across 9 operational metrics evaluating traditional fixed signals against our proposed Max-Pressure IoT system.</p>
+        </div>
+
+        <div class="comp-table-card">
+          <div class="table-responsive">
+            <table class="comp-matrix-table">
+              <thead>
+                <tr>
+                  <th>Operational Aspect</th>
+                  <th class="trad-col-head">Current (Traditional) System</th>
+                  <th class="iot-col-head">Proposed IoT System</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-bold">Control Method</td>
+                  <td class="trad-cell">Fixed-timer signals + manual traffic police</td>
+                  <td class="iot-cell">Camera + Raspberry Pi + real-time algorithm</td>
+                </tr>
+                <tr>
+                  <td class="font-bold">Adaptability</td>
+                  <td class="trad-cell">Same green/red duration regardless of traffic volume</td>
+                  <td class="iot-cell">Signal timing adjusts dynamically to actual vehicle count</td>
+                </tr>
+                <tr>
+                  <td class="font-bold">Decision-Making</td>
+                  <td class="trad-cell">Human judgment (police official)</td>
+                  <td class="iot-cell">Data-driven, automated computation</td>
+                </tr>
+                <tr>
+                  <td class="font-bold">Manpower</td>
+                  <td class="trad-cell">Requires officers on duty even where signals exist</td>
+                  <td class="iot-cell">Fully automated, minimal human involvement</td>
+                </tr>
+                <tr>
+                  <td class="font-bold">Cost (Long-Term)</td>
+                  <td class="trad-cell">High — ongoing manpower costs</td>
+                  <td class="iot-cell">Lower long-term — one-time hardware + upkeep</td>
+                </tr>
+                <tr>
+                  <td class="font-bold">Scalability</td>
+                  <td class="trad-cell">Poor — depends on available officers per intersection</td>
+                  <td class="iot-cell">Good — decentralized, works independently per junction</td>
+                </tr>
+                <tr>
+                  <td class="font-bold">Resilience</td>
+                  <td class="trad-cell">Single point of failure (if officer absent, chaos)</td>
+                  <td class="iot-cell">Continues working even if one server/node fails</td>
+                </tr>
+                <tr>
+                  <td class="font-bold">Data for Planning</td>
+                  <td class="trad-cell">No historical data generated</td>
+                  <td class="iot-cell">Vehicle counts logged to cloud database for city planning</td>
+                </tr>
+                <tr>
+                  <td class="font-bold">Response to Congestion</td>
+                  <td class="trad-cell">Reactive, inconsistent</td>
+                  <td class="iot-cell">Proactive, consistent, based on live density</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9 — CONCLUSION + REFERENCES -->
+    <section class="section conclusion-section" id="conclusion">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">SUMMARY & ACADEMIC CITATIONS</span>
+          <h2 class="section-title">Key Takeaways & References</h2>
+        </div>
+
+        <!-- Takeaways Grid -->
+        <div class="takeaways-grid">
+          <div class="takeaway-card">
+            <div class="takeaway-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#26D0E8" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg>
+            </div>
+            <h4>Edge IoT Hardware Integration</h4>
+            <p>Smart Traffic Management System developed using Raspberry Pi edge processor, camera sensing, NodeMCU microcontrollers, and Firebase database.</p>
+          </div>
+
+          <div class="takeaway-card">
+            <div class="takeaway-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#26D0E8" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <h4>Dynamic Max-Pressure Allocation</h4>
+            <p>Dynamically allocates green signal duration based on real-time vehicle density normalized by distance ($P = \frac{\text{Vehicles}}{\text{Distance}}$).</p>
+          </div>
+
+          <div class="takeaway-card">
+            <div class="takeaway-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#26D0E8" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h4>Decentralized System Resilience</h4>
+            <p>Decentralized architecture ensures system resilience and continuous junction operation even if a cloud server or network node drops.</p>
+          </div>
+
+          <div class="takeaway-card">
+            <div class="takeaway-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#26D0E8" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </div>
+            <h4>Smart City Data Analytics</h4>
+            <p>Provides rich historical traffic data logged to Firebase cloud to assist urban planners with future road and infrastructure decisions.</p>
+          </div>
+
+          <div class="takeaway-card">
+            <div class="takeaway-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#26D0E8" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h4>Superior Congestion Relief</h4>
+            <p>Effectively reduces intersection idle time, commuter delays, and fuel emissions compared to traditional fixed-timing signals.</p>
+          </div>
+        </div>
+
+        <!-- Academic References Card -->
+        <div class="references-card">
+          <h3 class="refs-title">Academic References</h3>
+          <ul class="refs-list">
+            <li><strong>Djahel et al.</strong> (2013). "A communications-oriented perspective on traffic management systems for smart cities." <em>IEEE Communications Surveys and Tutorials</em>.</li>
+            <li><strong>Chen & Sharma</strong> (2013). "Dynamic traffic control with fairness and throughput optimization using vehicular communications." <em>IEEE JSAC</em>.</li>
+            <li><strong>Atzori, Iera & Morabito</strong> (2010). "The Internet of Things: A survey." <em>Computer Networks</em>, Elsevier.</li>
+            <li><strong>Zhao, Dai & Zhang</strong> (2012). "Computational Intelligence in urban traffic signal control: A survey." <em>IEEE Transactions SMC</em>.</li>
+            <li><strong>Source Paper: Shashank S. et al.</strong> (2021). "IoT Based Traffic Management System," <em>IJSRCSEIT</em>, Vol 7, Issue 4.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SECTION 10 — FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="footer-brand">IoT Based Traffic Management System</div>
+        <div class="footer-sub">SUBJECT: Mind Mapping | Edge IoT & Max-Pressure Control Presentation</div>
+      </div>
+
+      <div class="footer-center">
+        <div class="footer-tag">Built with IoT + Edge Computing</div>
+      </div>
+
+      <div class="footer-right">
+        <a href="#hero" class="btn-secondary btn-sm">
+          <span>Back to Top ↑</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Supabase & Application Scripts -->
+  <script src="config.js"></script>
+  <script src="supabase.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';"></script>
+  <script src="supabaseClient.js"></script>
+  <script src="app.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
